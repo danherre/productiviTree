@@ -9,4 +9,4 @@ To setup the app (Navigate to the main directory aka the Productivitree folder):
 Now, let's activate the shell command that will allow you to run the code on your local computer
 1. In the terminal, run `chmod +x ./bin/apprun`
 2. Then, run `./bin/apprun`
-3. Go to a web browser, and type `local:8000` in the url and hit enter.
+3. Go to a web browser, and type `localhost:8000` in the url and hit enter.
