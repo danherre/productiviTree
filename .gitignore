@@ -8,6 +8,10 @@
 # not add to version control.
 
 *.log
+*.db
+var/
+
+
 node_modules/
 cookies.txt
 session.json
