@@ -7,7 +7,7 @@
 # A .gitignore file will tell git which files and directories to ignore and
 # not add to version control.
 
-
+*.log
 node_modules/
 cookies.txt
 session.json
