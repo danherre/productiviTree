@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+# insta485run
+#
+#
+
+set -x
+set -Eeuo pipefail
+
+FLASK_DEBUG=True
+FLASK_APP=client
+CLIENT_SETTINGS=config.py
+
+export FLASK_DEBUG=True
+export FLASK_APP=client/views/index.py
+export CLIENT_SETTINGS=config.py
+
+flask run --host 0.0.0.0 --port 8000
