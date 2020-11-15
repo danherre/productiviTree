@@ -1,15 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <meta charset="utf-8">
+    <title>Page Title</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/index.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Hello World</h1>
-
+    <img id="background" src="images/window.jpg">
+    <div id="timer-container">
+        <!-- <a href="https://logwork.com/countdown-2zeh" class="countdown-timer" data-style="columns" data-timezone="America/New_York" data-date="2020-11-17 14:24">Demo Timer</a> -->
+        25:00
+    </div>
+    <div id="shelf">
+        <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin">
+        <div id="money">45</div>
+        <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can">
+        <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun">
+        <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer">
+    </div>
+    <div id="floor">
+        <img id="sprout" src=" {{ url_for('static', filename='images/sprout.png') }}" alt="Plant">
+        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat">
+    </div>
+    <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table">
+    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio">
+    <!-- <script src="https://cdn.logwork.com/widget/countdown.js"></script> -->
 </body>
 
 </html>
