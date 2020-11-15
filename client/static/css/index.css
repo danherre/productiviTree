@@ -1,0 +1,123 @@
+body {
+    margin: 0px;
+    font-family: 'Dancing Script', cursive;
+    color: #333333;
+  }
+  
+  img {
+    position: absolute;
+    box-sizing: border-box;
+  }
+  
+  body div {
+    position: absolute;
+    box-sizing: border-box;
+  }
+  
+  #background {
+    position: fixed;
+    z-index: 0;
+    width: 2000px;
+    left: calc(50% - 1000px);
+    top: -20px;
+  }
+  
+  #shelf {
+    height: 150px;
+    width: 100%;
+    bottom: 0px;
+    border-top: 1px solid gray;
+    border-bottom: 2px solid gray;
+    background-color: #F5F5F5;
+  }
+  
+  #floor {
+    height: 100px;
+    width: calc(100% - 330px);
+    bottom: 150px;
+    border-top: 2px solid gray;
+    border-bottom: 1px solid gray;
+    background-color: #FAFAFA;
+  }
+  
+  #table {
+    position: fixed;
+    width: 350px;
+    right: -20px;
+    bottom: 147px;
+  }
+  
+  #sprout{
+    width: 200px;
+    height: 208px;
+    bottom: 5px;
+    left: calc(63% - 100px);
+    z-index: 1;
+  }
+  
+  #cat{
+    width: 300px;
+    bottom: 10px;
+    left: 10px;
+  }
+  
+  #radio{
+    width: 180px;
+    right: 60px;
+    bottom: 430px;
+  }
+  
+  #coin{
+    width:120px;
+    height: 94px;
+    top: calc(50% - 47px);
+    left: calc(12.5% - 100px);
+  }
+  
+  #money{
+    box-sizing: border-box;
+    position: absolute;
+    width: 80px;
+    height: 94px;
+    top: calc(50% - 47px);
+    left: calc(12.5% + 20px);
+    background-color: #F3F3F3;
+    font-size: 50px;
+    color: #333333;
+    padding-top: 19px;
+    padding-left: 10px;
+  }
+  
+  #watering-can{
+    width: 170px;
+    height: 130px;
+    top: calc(50% - 65px);
+    left: calc(37.5% - 85px);
+  }
+  
+  #sun{
+    width: 130px;
+    height: 120px;
+    top: calc(50% - 60px);
+    left: calc(62.5% - 65px);
+  }
+  
+  #fertilizer{
+    width: 100px;
+    height: 120px;
+    top: calc(50% - 60px);
+    left: calc(87.5% - 50px);
+  }
+  
+  #timer-container {
+    border: 2px solid gray;
+    height: 150px;
+    width: 400px;
+    top: 40px;
+    left: calc(50% - 200px);
+    background-color: #FAFAFA;
+    font-size: 100px;
+    text-align: center;
+    padding-top: 10px;
+  }
+  
