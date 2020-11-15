@@ -1,0 +1,6 @@
+.section {
+    display:inline-block;
+    width: 40%;
+    margin: 10px;
+    vertical-align: top;
+}
