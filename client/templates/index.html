@@ -8,10 +8,12 @@
     <link rel="stylesheet" href=" {{ url_for('static', filename='css/index.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+    <!-- link to index javascript file in static/js -->
+    <script type="text/javascript" src=" {{ url_for('static', filename='js/index.js') }}"></script>
 </head>
 
 <body>
-    <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}"> 
+    <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}">
     <div id="timer-container">
         <!-- <a href="https://logwork.com/countdown-2zeh" class="countdown-timer" data-style="columns" data-timezone="America/New_York" data-date="2020-11-17 14:24">Demo Timer</a> -->
         25:00
