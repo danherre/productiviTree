@@ -1,0 +1,134 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+p {
+  display: inline;
+  font-size: 40px;
+  margin-top: 0px;
+}
+</style>
+</head>
+<body>
+    <div id='visible'>
+        <p id="mins"></p>
+        <p id="secs">0s </p>
+        <h2 id="end"></h2>
+        <p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p>
+        <button onClick='setTimes()' id='start-pause-btn'>Start</button>
+        <button onClick='stopTimes()' id='stop-btn'>Stop</button>
+    </div>
+
+    <script>
+    
+    // necessary variables for keeping track of times
+    let working = false;
+    let timerInitiated = false;
+    let worktime = 25;
+    let resttime = 5;
+    let changingSetting = false;
+    document.getElementById("mins").innerHTML = worktime + "m ";
+
+    // Function for when user wants to change settings
+    function changeSettings() {
+        if (working) {
+            alert("You can only change settings when you're not working!");
+        }
+        else {
+            changingSetting = true;
+            workTimeForm = "<p>Input work time: <form><input type='text' id='input-work-time' value='" + worktime + "'></form></p>"
+            restTimeForm = "<p>Input rest time: <form><input type='text' id='input-rest-time' value='" + resttime + "'></form></p>"
+            saveButton = "<button onClick='saveSettings()' id='save-btn'>Save</button>"
+            closeButton = "<button onClick='closeSettings()' id='close-btn'>Close</button>"
+            document.getElementById("visible").innerHTML = workTimeForm + restTimeForm + saveButton + closeButton
+        }
+    }
+
+    // Save settings
+    function saveSettings() {
+        // Changing the worktime and resttime variables
+        worktime = document.getElementById("input-work-time");
+        worktime = parseInt(worktime.value);
+        resttime = document.getElementById("input-rest-time");
+        resttime = parseInt(resttime.value);
+
+        // If there is a timer running already, make sure the returned timer shows that
+        // Else, show the new selected work time
+        if (timerInitiated) {
+            document.getElementById("visible").innerHTML = "<p id='mins'>" + minutes +"m </p><p id='secs'>" + seconds + "s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
+        }
+        else {
+            document.getElementById("visible").innerHTML = "<p id='mins'>" + worktime + "m </p><p id='secs'>0s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
+        }
+        changingSetting = false;
+    }
+
+    // Close settings
+    function closeSettings() {
+        // If there is a timer running already, make sure the returned timer shows that
+        // Else, show the new selected work time
+        if (timerInitiated) {
+            document.getElementById("visible").innerHTML = "<p id='mins'>" + minutes +"m </p><p id='secs'>" + seconds + "s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
+        }
+        else {
+            document.getElementById("visible").innerHTML = "<p id='mins'>" + worktime + "m </p><p id='secs'>0s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
+        }
+        changingSetting = false;
+    }
+
+    // Function to run when start is hit
+    function setTimes() {
+        
+        working = true;
+        timerInitiated = true;
+        // Retrieval and manipulation of minute data
+        var timeleft = worktime;
+        timeleft = timeleft * 60;
+
+        timerInterval = setInterval(function() {
+        
+            // Calculating the minutes and seconds left
+            minutes = Math.floor(timeleft / 60);
+            seconds = timeleft % 60;
+                
+            // Result is output to the specific element and change button text
+            if (!changingSetting) {
+                document.getElementById("mins").innerHTML = minutes + "m ";
+                document.getElementById("secs").innerHTML = seconds + "s ";
+                document.getElementById("start-pause-btn").innerHTML = "Pause";
+            }
+            
+            timeleft -= 1;
+
+            // Change between break and work when timeleft is < 0
+            if (timeleft < 0) {
+                if (working) {
+                    working = false;
+                    timeleft = resttime * 60;
+                    if (!changingSetting) {
+                        document.getElementById("end").innerHTML = "Enjoy your break";
+                    }
+                }
+                else {
+                    working = true;
+                    timeleft = worktime * 60;
+                    if (!changingSetting) {
+                        document.getElementById("end").innerHTML = "OH you don't like working? Too bad";
+                    }
+                }
+            }
+        }, 1000);
+    }
+
+    // Function to run when stop is hit
+    function stopTimes() {
+        clearInterval(timerInterval);
+        document.getElementById("mins").innerHTML = worktime + "m ";
+        document.getElementById("secs").innerHTML = "0s ";
+        working = false;
+        timerInitiated = false;
+    }
+    </script>
+</body>
+</html>
