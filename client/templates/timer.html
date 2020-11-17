@@ -3,21 +3,45 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-p {
-  display: inline;
-  font-size: 40px;
-  margin-top: 0px;
+
+.times {
+    display: inline;
+    font-size: 40px;
+    margin-top: 0px;
 }
+#visible {
+    height: 120px;
+    width: 300px;
+    border:1px solid black;
+    position: relative;
+}
+.btn-img {
+    width: 60px;
+}
+#leftcontent {
+    float: left;
+}
+#buttons {
+    float: right;
+}
+#buttons button {
+    margin-top: -15px;
+}
+
 </style>
 </head>
 <body>
     <div id='visible'>
-        <p id="mins"></p>
-        <p id="secs">0s </p>
-        <h2 id="end"></h2>
-        <p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p>
-        <button onClick='setTimes()' id='start-pause-btn'>Start</button>
-        <button onClick='stopTimes()' id='stop-btn'>Stop</button>
+        <div id="leftcontent">
+            <p id="mins" class="times"></p>
+            <p id="secs" class="times">0s </p>
+            <h2 id="end"></h2>
+        </div>
+        <div id="buttons">
+            <p><button onClick='changeSettings()' id='settings-btn'><img src="../static/images/settings-button.png" class='btn-img'></button></p>
+            <p><button onClick='startPauseBtn()' id='start-pause-btn'><img src='../static/images/start-button.png' class='btn-img'></button></p>
+            <p><button onClick='stopTimes()' id='stop-btn'><img src='../static/images/stop-button.png' class='btn-img'></button></p>
+        </div>
     </div>
 
     <script>
@@ -28,8 +52,27 @@ p {
     let worktime = 25;
     let resttime = 5;
     let changingSetting = false;
+    let pausing = false;
     document.getElementById("mins").innerHTML = worktime + "m ";
 
+    // Function which manages the start and pause button
+    function startPauseBtn() {
+        if (!timerInitiated) {
+            console.log("START TIMER");
+            setTimes();
+        }
+        else if (!pausing) {
+            console.log("PAUSE");
+            document.getElementById("start-pause-btn").innerHTML = "<img src='../static/images/start-button.png' class='btn-img'>";
+            pausing = true;
+        }
+        else {
+            console.log("RESUME");
+            document.getElementById("start-pause-btn").innerHTML = "<img src='../static/images/pause-button.png' class='btn-img'>";
+            pausing = false;
+        }
+    }
+    
     // Function for when user wants to change settings
     function changeSettings() {
         if (working) {
@@ -37,11 +80,14 @@ p {
         }
         else {
             changingSetting = true;
-            workTimeForm = "<p>Input work time: <form><input type='text' id='input-work-time' value='" + worktime + "'></form></p>"
-            restTimeForm = "<p>Input rest time: <form><input type='text' id='input-rest-time' value='" + resttime + "'></form></p>"
-            saveButton = "<button onClick='saveSettings()' id='save-btn'>Save</button>"
-            closeButton = "<button onClick='closeSettings()' id='close-btn'>Close</button>"
-            document.getElementById("visible").innerHTML = workTimeForm + restTimeForm + saveButton + closeButton
+            divString1 = "<div id='leftcontent'>";
+            divString2 = "</div><div id='buttons'>";
+            divString3 = "</div>";
+            workTimeForm = "Input work time: <form><input type='text' id='input-work-time' value='" + worktime + "'></form>"
+            restTimeForm = "Input rest time: <form><input type='text' id='input-rest-time' value='" + resttime + "'></form>"
+            saveButton = "<p><button onClick='saveSettings()' id='save-btn'><img src='../static/images/save-button.png' class='btn-img'></button></p>"
+            closeButton = "<p><button onClick='closeSettings()' id='close-btn'><img src='../static/images/close-button.png' class='btn-img'></button></p>"
+            document.getElementById("visible").innerHTML = divString1 + workTimeForm + restTimeForm + divString2 + saveButton + closeButton + divString3;
         }
     }
 
@@ -53,26 +99,32 @@ p {
         resttime = document.getElementById("input-rest-time");
         resttime = parseInt(resttime.value);
 
-        // If there is a timer running already, make sure the returned timer shows that
-        // Else, show the new selected work time
-        if (timerInitiated) {
-            document.getElementById("visible").innerHTML = "<p id='mins'>" + minutes +"m </p><p id='secs'>" + seconds + "s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
-        }
-        else {
-            document.getElementById("visible").innerHTML = "<p id='mins'>" + worktime + "m </p><p id='secs'>0s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
-        }
-        changingSetting = false;
+        closeSettings();
     }
 
     // Close settings
     function closeSettings() {
         // If there is a timer running already, make sure the returned timer shows that
         // Else, show the new selected work time
-        if (timerInitiated) {
-            document.getElementById("visible").innerHTML = "<p id='mins'>" + minutes +"m </p><p id='secs'>" + seconds + "s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
+        buttonString = "";
+        if (pausing) {
+            buttonString = "<img src='../static/images/start-button.png' class='btn-img'>";
         }
         else {
-            document.getElementById("visible").innerHTML = "<p id='mins'>" + worktime + "m </p><p id='secs'>0s </p><h2 id='end'></h2><p><button onClick='changeSettings()' id='settings-btn'>Settings</button></p><button onClick='setTimes()' id='start-pause-btn'>Start</button><button onClick='stopTimes()' id='stop-btn'>Stop</button>";
+            buttonString = "<img src='../static/images/pause-button.png' class='btn-img'>";
+        }
+        leftContentString1 = "<div id='leftcontent'><p id='mins' class='times'>";
+        leftContentString2 = "m </p><p id='secs' class='times'>";
+        leftContentString3 = "s </p><h2 id='end'></h2></div>";
+        buttonsString1 = "<div id='buttons'><p><button onClick='changeSettings()' id='settings-btn'><img src='../static/images/settings-button.png' class='btn-img'></button></p>";
+        buttonsString2 = "<p><button onClick='startPauseBtn()' id='start-pause-btn'>";
+        buttonsString3 = "</button></p><p><button onClick='stopTimes()' id='stop-btn'><img src='../static/images/stop-button.png' class='btn-img'></button></p></div>";
+        if (timerInitiated) {
+            document.getElementById("visible").innerHTML = leftContentString1 + minutes + leftContentString2 + seconds + leftContentString3 + buttonsString1 + buttonsString2 + buttonString + buttonsString3;
+        }
+        else {
+            buttonString = "<img src='../static/images/start-button.png' class='btn-img'>";
+            document.getElementById("visible").innerHTML = leftContentString1 + worktime + leftContentString2 + "0" + leftContentString3 + buttonsString1 + buttonsString2 + buttonString + buttonsString3;
         }
         changingSetting = false;
     }
@@ -85,6 +137,8 @@ p {
         // Retrieval and manipulation of minute data
         var timeleft = worktime;
         timeleft = timeleft * 60;
+        document.getElementById("start-pause-btn").innerHTML = "<img src='../static/images/pause-button.png' class='btn-img'>";
+        document.getElementById("end").innerHTML = "Working";
 
         timerInterval = setInterval(function() {
         
@@ -96,10 +150,11 @@ p {
             if (!changingSetting) {
                 document.getElementById("mins").innerHTML = minutes + "m ";
                 document.getElementById("secs").innerHTML = seconds + "s ";
-                document.getElementById("start-pause-btn").innerHTML = "Pause";
             }
             
-            timeleft -= 1;
+            if (!pausing) {
+                timeleft -= 1;
+            }
 
             // Change between break and work when timeleft is < 0
             if (timeleft < 0) {
@@ -114,7 +169,7 @@ p {
                     working = true;
                     timeleft = worktime * 60;
                     if (!changingSetting) {
-                        document.getElementById("end").innerHTML = "OH you don't like working? Too bad";
+                        document.getElementById("end").innerHTML = "Working";
                     }
                 }
             }
@@ -123,11 +178,16 @@ p {
 
     // Function to run when stop is hit
     function stopTimes() {
-        clearInterval(timerInterval);
-        document.getElementById("mins").innerHTML = worktime + "m ";
-        document.getElementById("secs").innerHTML = "0s ";
-        working = false;
-        timerInitiated = false;
+        if (timerInitiated) {
+            clearInterval(timerInterval);
+            document.getElementById("mins").innerHTML = worktime + "m ";
+            document.getElementById("secs").innerHTML = "0s ";
+            document.getElementById("end").innerHTML = "";
+            document.getElementById("start-pause-btn").innerHTML = "<img src='../static/images/start-button.png' class='btn-img'>";
+            working = false;
+            timerInitiated = false;
+            pausing = false;
+        }
     }
     </script>
 </body>
