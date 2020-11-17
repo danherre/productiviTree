@@ -4,3 +4,6 @@
     margin: 10px;
     vertical-align: top;
 }
+.error {
+    color: red;
+}
