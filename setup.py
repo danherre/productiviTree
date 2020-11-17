@@ -25,6 +25,7 @@ setup(
         'selenium==3.141.0',
         'google-cloud==0.34.0',
         'google-cloud-storage==1.27.0',
-        'PyMySQL==0.9.3'
+        'PyMySQL==0.9.3',
+        ''
     ],
 )
