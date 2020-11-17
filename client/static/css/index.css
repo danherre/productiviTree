@@ -121,3 +121,7 @@ body {
     padding-top: 10px;
   }
   
+  #username_display {
+    z-index: 2;
+    color: white;
+  }

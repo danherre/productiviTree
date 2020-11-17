@@ -2,13 +2,9 @@ from flask import Flask
 import flask
 import client
 from client import app
-# import firebase_admin
-# from firebase_admin import credentials
-# import hashlib
+from firebase import firebase
 
-# cred = credentials.Certificate("../../../productivity-4f011-firebase-adminsdk-hb93o-3cc61cbc19.json")
-# firebase_admin.initialize_app(cred)
-
+db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.com/',None)
 
 @client.app.route("/")
 def index():
@@ -16,37 +12,30 @@ def index():
 
 @client.app.route("/login", methods=['GET', 'POST'])
 def login():
+    flask.session.clear()
+    context = {'error_login': False}
     if flask.request.method == 'GET':
-        if "user_name" not in flask.session.keys():
-            return flask.render_template("login.html")
+        if "username" not in flask.session.keys():
+            return flask.render_template("login.html", **context)
         return flask.redirect("/")
-    # post method
+    top_level = db_cursor.get('/',None)
+    username = flask.request.form['username']
     password = flask.request.form['password']
-    algorithm = 'sha512'
+    if username in top_level['users'] and top_level['users'][username] == password:
+        flask.session['username'] = username
+        return flask.redirect("/")
+    else:
+        context['error_login'] = True
+        return flask.render_template("login.html", **context)
 
-    connection = insta485.model.get_db()
 
-    # Query database to see if this user exists
-    # get the username and password
-    cur = connection.execute(
-        "SELECT username, password FROM users WHERE username"
-        " = ?",
-        [flask.request.form['username']]
-    )
-    user = cur.fetchone()
-    # if user doesn't exist, abort
-    if not user:
-        flask.abort(403)
-    # vlog_request = user[0]+erify the login info
-    new_salt = user['password'].split('$')[1]
-    hash_obj = hashlib.new(algorithm)
-    password_salted = new_salt + password
-    hash_obj.update(password_salted.encode('utf-8'))
-    password_hash = hash_obj.hexdigest()
-    password_db_string = "$".join([algorithm, new_salt, password_hash])
-    # abort if the password is wrong
-    if str(user['password']) != str(password_db_string):
-        flask.abort(403)
-    # modify the session username
-    flask.session['user_name'] = user['username']
+@client.app.route("/signup", methods=['POST'])
+def signup():
+    username = flask.request.form['username']
+    password = flask.request.form['password']
+    top_level = db_cursor.get('/',None)
+    if not username or not password or username in top_level['users']:
+        context = {'error_signup': True}
+        return flask.render_template("login.html", **context)
+    db_cursor.put('/users',username , password)
     return flask.redirect("/")
