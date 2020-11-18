@@ -1,0 +1,25 @@
+.times {
+    display: inline;
+    font-size: 40px;
+    margin-top: 0px;
+}
+#visible {
+    height: 150px;
+    width: 400px;
+    position: relative;
+}
+.btn-img {
+    width: 60px;
+}
+#leftcontent {
+    float: left;
+}
+#buttons {
+    position: relative;
+    float: right;
+}
+#buttons button {
+    margin-top: -15px;
+    /* width: 60px; */
+    background:url("../static/images/settings-button.png") no-repeat;
+}

@@ -3,39 +3,38 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-
-.times {
-    display: inline;
-    font-size: 40px;
-    margin-top: 0px;
-}
-#visible {
-    height: 120px;
-    width: 300px;
-    border:1px solid black;
-    position: relative;
-}
-.btn-img {
-    width: 60px;
-}
-#leftcontent {
-    float: left;
-}
-#buttons {
-    float: right;
-}
-#buttons button {
-    margin-top: -15px;
-}
-
+    .times {
+        display: inline;
+        font-size: 40px;
+        margin-top: 0px;
+    }
+    #visible {
+        height: 150px;
+        width: 400px;
+        border:1px solid black;
+        position: relative;
+    }
+    .btn-img {
+        width: 60px;
+    }
+    #leftcontent {
+        float: left;
+    }
+    #buttons {
+        position: relative;
+        float: right;
+    }
+    #buttons button {
+        margin-top: -15px;
+    }
 </style>
 </head>
 <body>
     <div id='visible'>
         <div id="leftcontent">
-            <p id="mins" class="times"></p>
+            <p id="mins" class="times">25m </p>
             <p id="secs" class="times">0s </p>
-            <h2 id="end"></h2>
+            <p id="end"></p>
         </div>
         <div id="buttons">
             <p><button onClick='changeSettings()' id='settings-btn'><img src="../static/images/settings-button.png" class='btn-img'></button></p>
