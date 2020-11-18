@@ -8,18 +8,21 @@
     width: 400px;
     position: relative;
 }
-.btn-img {
-    width: 60px;
-}
+
 #leftcontent {
     float: left;
+    width: 320px;
 }
 #buttons {
+    margin-top: -6px;
+    margin-right: 10px;
     position: relative;
     float: right;
+    width: 120px;
 }
 #buttons button {
     margin-top: -15px;
-    /* width: 60px; */
-    background:url("../static/images/settings-button.png") no-repeat;
+    width: 80px;
+    height: 32px;
+    border: none;
 }
