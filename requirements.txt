@@ -41,7 +41,6 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycodestyle==2.5.0
 pycparser==2.20
-pycrypto==2.6.1
 pycryptodome==3.9.9
 pydocstyle==5.0.2
 pylint==2.4.4
