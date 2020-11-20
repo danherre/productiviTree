@@ -43,6 +43,7 @@ pycodestyle==2.5.0
 pycparser==2.20
 pycrypto==2.6.1
 pydocstyle==5.0.2
+pycryptodome==3.4.3
 pylint==2.4.4
 PyMySQL==0.9.3
 pyparsing==2.4.7
