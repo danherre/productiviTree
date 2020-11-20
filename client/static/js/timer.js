@@ -87,7 +87,7 @@ function closeSettings() {
 
 // Function to run when start is hit
 function setTimes() {
-    
+
     working = true;
     timerInitiated = true;
     // Retrieval and manipulation of minute data
@@ -96,18 +96,18 @@ function setTimes() {
     document.getElementById("start-pause-btn").innerHTML = pauseBtnString;
     document.getElementById("end").innerHTML = "Working";
 
-    timerInterval = setInterval(function() {
-    
+    timerInterval = setInterval(function () {
+
         // Calculating the minutes and seconds left
         minutes = Math.floor(timeleft / 60);
         seconds = timeleft % 60;
-            
+
         // Result is output to the specific element and change button text
         if (!changingSetting) {
             document.getElementById("mins").innerHTML = minutes + "m ";
             document.getElementById("secs").innerHTML = seconds + "s ";
         }
-        
+
         if (!pausing) {
             timeleft -= 1;
         }
