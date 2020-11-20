@@ -16,7 +16,7 @@ body {
   
   #background {
     position: fixed;
-    z-index: 0;
+    z-index: -1;
     width: 2000px;
     left: calc(50% - 1000px);
     top: -20px;
@@ -121,8 +121,16 @@ body {
     padding-top: 10px;
     position: relative;
   }
-  
+  #login-button {
+    float:right;
+    width: 150px;
+    height: 50px;
+    border:none;
+  }
   #username_display {
-    z-index: 2;
-    color: white;
+    float:right;
+    width: 150px;
+    height: 50px;
+    border:none;
+    font-size: 30px;
   }

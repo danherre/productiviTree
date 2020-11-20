@@ -8,7 +8,14 @@ db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.
 
 @client.app.route("/")
 def index():
-    return flask.render_template("index.html")
+    context = {
+        'username_exists': False,
+        'username': ''
+    }
+    if "username" in flask.session.keys():
+        context['username'] = flask.session['username']
+        context['username_exists'] = True
+    return flask.render_template("index.html", **context)
 
 @client.app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -38,4 +45,10 @@ def signup():
         context = {'error_signup': True}
         return flask.render_template("login.html", **context)
     db_cursor.put('/users',username , password)
+    flask.session['username'] = username
+    return flask.redirect("/")
+
+@client.app.route("/logout")
+def logout():
+    flask.session.clear()
     return flask.redirect("/")

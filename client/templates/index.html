@@ -16,6 +16,12 @@
 
 <body>
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}">
+    {%if username_exists %}
+    <span id="username_display">Hello, {{username}} <br><a href="/logout">Logout</a></span>
+    {% else %}
+    <a href="/login" id="login-button"
+        style="background: url('../static/images/login-signup-button.png'); background-size: 150px auto; background-repeat: no-repeat;"></a>
+    {% endif %}
     <div id="timer-container">
         <!-- <a href="https://logwork.com/countdown-2zeh" class="countdown-timer" data-style="columns" data-timezone="America/New_York" data-date="2020-11-17 14:24">Demo Timer</a> -->
         <!-- 25:00 -->
