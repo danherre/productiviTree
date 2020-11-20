@@ -6,17 +6,40 @@
     <meta charset="utf-8">
     <title>Page Title</title>
     <link rel="stylesheet" href=" {{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href=" {{ url_for('static', filename='css/timer.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <!-- link to index javascript file in static/js -->
     <script type="text/javascript" src=" {{ url_for('static', filename='js/index.js') }}"></script>
+    <script type="text/javascript" src=" {{ url_for('static', filename='js/timer.js') }}"></script>
 </head>
 
 <body>
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}">
     <div id="timer-container">
         <!-- <a href="https://logwork.com/countdown-2zeh" class="countdown-timer" data-style="columns" data-timezone="America/New_York" data-date="2020-11-17 14:24">Demo Timer</a> -->
-        25:00
+        <!-- 25:00 -->
+        <div id='visible'>
+            <div id="leftcontent">
+                <p id="mins" class="times">25m </p>
+                <p id="secs" class="times">0s </p>
+                <h2 id="end"></h2>
+            </div>
+            <div id="buttons">
+                <p id='settings-btn'><button onClick='changeSettings()' 
+                    style="background: url('../static/images/settings-button.png'); 
+                    background-size: 80px auto;">
+                </button></p>
+                <p id='start-pause-btn'><button onClick='startPauseBtn()' 
+                    style="background: url('../static/images/start-button.png'); 
+                    background-size: 80px auto;">
+                </button></p>
+                <p id='stop-btn'><button onClick='stopTimes()'
+                    style="background: url('../static/images/stop-button.png'); 
+                    background-size: 80px auto;">
+                </button></p>
+            </div>
+        </div>
     </div>
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin">

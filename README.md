@@ -1,4 +1,4 @@
-# productiviTree
+# ProductiviTree
 A web interface for the Pomodoro Technique disguised as a relaxing plant-growing game.
 
 To setup the app (Navigate to the main directory aka the Productivitree folder):
