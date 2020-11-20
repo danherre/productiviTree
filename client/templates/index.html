@@ -56,8 +56,42 @@
         <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat">
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table">
-    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio">
-    <!-- <script src="https://cdn.logwork.com/widget/countdown.js"></script> -->
+    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio"' onCLick='startRadio()'>
+    
+    <!-- <div data-video="7mjtE5A2zMY"  
+        data-autoplay="0"         
+        data-loop="1"             
+        id="youtube-audio">
+    </div>
+
+    <style>
+        #youtube-audio {
+           visibility: hidden; 
+        }
+    </style>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script> -->
+
+    <script>
+        let radioIsOn = false;
+        let music = new Audio('../static/audio/dreamy_night.mp3');
+        music.loop = true;
+
+        function startRadio(){
+            if (!radioIsOn){
+                console.log("play")        
+                music.play();
+                radioIsOn = true;
+            }
+            else {
+                console.log("stop")
+                music.pause();
+                music.currentTime = 0;
+                radioIsOn = false;
+            }
+        }
+    </script>
 </body>
 
 </html>
