@@ -103,7 +103,7 @@ function setTimes() {
         seconds = timeleft % 60;
 
         // Result is output to the specific element and change button text
-        if (!changingSetting) {
+        if (!changingSetting && !pausing) {
             document.getElementById("mins").innerHTML = minutes + "m ";
             document.getElementById("secs").innerHTML = seconds + "s ";
         }
