@@ -59,7 +59,7 @@
     </div>
     <div id="floor">
         <img id="sprout" src=" {{ url_for('static', filename='images/sprout.png') }}" alt="Plant">
-        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat">
+        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" onCLick='purr()'>
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table">
     <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio"' onCLick='startRadio()'>
@@ -81,11 +81,11 @@
 
     <script>
         let radioIsOn = false;
-        let music = new Audio('../static/audio/dreamy_night.mp3');
+        let music = new Audio('../static/audio/dreamy_night.mp3'); //https://www.youtube.com/watch?v=DXuNJ267Vss
         music.loop = true;
 
         function startRadio(){
-            if (!radioIsOn){
+            if (!radioIsOn && !catPurring){
                 console.log("play")        
                 music.play();
                 radioIsOn = true;
@@ -97,6 +97,24 @@
                 radioIsOn = false;
             }
         }
+        
+        let catPurring = false;
+        let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
+        function purr(){
+            if (!catPurring && !radioIsOn){
+                console.log("purr")        
+                purring.play();
+                catPurring = true;
+            }
+            else {
+                console.log("stop purr")
+                purring.pause();
+                purring.currentTime = 0;
+                catPurring = false;
+            }
+        }
+
+        
     </script>
 </body>
 
