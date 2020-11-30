@@ -108,7 +108,6 @@ body {
   }
 
   #cost.can{
-    /* top: calc(50% - 10px); */
     left: calc(37.5% + 50px);
   }
   #cost.sun{
@@ -150,10 +149,16 @@ body {
     height: 50px;
     border:none;
   }
-  #username_display {
+  #logout-button {
     float:right;
-    width: 150px;
+    width: 130px;
     height: 50px;
+    left: 20px;
+    border:none;
+  }
+  #username_display {
+    float:left;
     border:none;
     font-size: 30px;
+    color: white;
   }

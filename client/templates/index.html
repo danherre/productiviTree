@@ -17,7 +17,10 @@
 <body>
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}">
     {%if username_exists %}
-    <span id="username_display">Hello, {{username}} <br><a href="/logout">Logout</a></span>
+    <span id="username_display">Hello, {{username}} </span>
+    <a href="/logout" id="logout-button"
+    style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
+    
     {% else %}
     <a href="/login" id="login-button"
         style="background: url('../static/images/login-signup-button.png'); background-size: 150px auto; background-repeat: no-repeat;"></a>
