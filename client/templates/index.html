@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}">
+    <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}" draggable="false">
     {%if username_exists %}
     <span id="username_display">Hello, {{username}} <br><a href="/logout">Logout</a></span>
     {% else %}
@@ -45,18 +45,18 @@
         </div>
     </div>
     <div id="shelf">
-        <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin">
+        <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
         <div id="money">45</div>
-        <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can">
-        <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun">
-        <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer">
+        <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can" draggable="false">
+        <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun" draggable="false">
+        <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer" draggable="false">
     </div>
     <div id="floor">
-        <img id="sprout" src=" {{ url_for('static', filename='images/sprout.png') }}" alt="Plant">
-        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat">
+        <img id="sprout" src=" {{ url_for('static', filename='images/sprout.png') }}" alt="Plant" draggable="false">
+        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" draggable="false">
     </div>
-    <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table">
-    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio"' onCLick='startRadio()'>
+    <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
+    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()' draggable="false">
     
     <!-- <div data-video="7mjtE5A2zMY"  
         data-autoplay="0"         
