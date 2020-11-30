@@ -48,11 +48,11 @@
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
         <div id="money">55</div>
         <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can" draggable="false">
-        <div id="cost" class="can">10¢</div>
+        <!-- <div id="cost" class="can">10¢</div> -->
         <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun" draggable="false">
-        <div id="cost" class="sun">10¢</div>
+        <!-- <div id="cost" class="sun">10¢</div> -->
         <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer" draggable="false">
-        <div id="cost" class="fert">20¢</div>
+        <!-- <div id="cost" class="fert">20¢</div> -->
     </div>
     <div id="floor">
         <img id="sprout" src=" {{ url_for('static', filename='images/sprout.png') }}" alt="Plant" draggable="false">
@@ -60,21 +60,6 @@
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
     <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()' draggable="false">
-    
-    <!-- <div data-video="7mjtE5A2zMY"  
-        data-autoplay="0"         
-        data-loop="1"             
-        id="youtube-audio">
-    </div>
-
-    <style>
-        #youtube-audio {
-           visibility: hidden; 
-        }
-    </style>
-
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <script src="https://cdn.rawgit.com/labnol/files/master/yt.js"></script> -->
 
     <script>
         let radioIsOn = false;
