@@ -15,7 +15,7 @@ body {
   }
   
   #background {
-    position: fixed;
+    position: absolute;
     z-index: -1;
     width: 2000px;
     left: calc(50% - 1000px);
@@ -41,7 +41,7 @@ body {
   }
   
   #table {
-    position: fixed;
+    position: absolute;
     width: 350px;
     right: -20px;
     bottom: 147px;
@@ -81,7 +81,7 @@ body {
     height: 94px;
     top: calc(50% - 47px);
     left: calc(12.5% + 20px);
-    background-color: #F3F3F3;
+    /* background-color: #F3F3F3; */
     font-size: 50px;
     color: #333333;
     padding-top: 19px;
@@ -89,10 +89,33 @@ body {
   }
   
   #watering-can{
-    width: 170px;
-    height: 130px;
-    top: calc(50% - 65px);
+    width: 150px;
+    height: 110px;
+    top: calc(50% - 45px);
     left: calc(37.5% - 85px);
+  }
+
+  #cost {
+    box-sizing: border-box;
+    position: absolute;
+    width: 80px;
+    height: 94px;
+    top: calc(50% - 7px);
+    font-size: 25px;
+    color: #333333;
+    padding-top: 19px;
+    padding-left: 10px;
+  }
+
+  #cost.can{
+    /* top: calc(50% - 10px); */
+    left: calc(37.5% + 50px);
+  }
+  #cost.sun{
+    left: calc(62.5% + 65px);
+  }
+  #cost.fert{
+    left: calc(87.5% + 50px);
   }
   
   #sun{
