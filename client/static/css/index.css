@@ -5,12 +5,12 @@ body {
   }
   
   img {
-    position: absolute;
+    position: fixed;
     box-sizing: border-box;
   }
   
   body div {
-    position: absolute;
+    position: fixed;
     box-sizing: border-box;
   }
   
@@ -76,7 +76,7 @@ body {
   
   #money{
     box-sizing: border-box;
-    position: absolute;
+    position: fixed;
     width: 80px;
     height: 94px;
     top: calc(50% - 47px);
