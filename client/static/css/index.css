@@ -5,17 +5,17 @@ body {
   }
   
   img {
-    position: fixed;
+    position: absolute;
     box-sizing: border-box;
   }
   
   body div {
-    position: fixed;
+    position: absolute;
     box-sizing: border-box;
   }
   
   #background {
-    position: absolute;
+    position: fixed;
     z-index: -1;
     width: 2000px;
     left: calc(50% - 1000px);
@@ -41,7 +41,7 @@ body {
   }
   
   #table {
-    position: absolute;
+    position: fixed;
     width: 350px;
     right: -20px;
     bottom: 147px;
@@ -76,7 +76,7 @@ body {
   
   #money{
     box-sizing: border-box;
-    position: fixed;
+    position: absolute;
     width: 80px;
     height: 94px;
     top: calc(50% - 47px);
@@ -95,7 +95,7 @@ body {
     left: calc(37.5% - 85px);
   }
 
-  #cost {
+  /* #cost {
     box-sizing: border-box;
     position: absolute;
     width: 80px;
@@ -115,7 +115,7 @@ body {
   }
   #cost.fert{
     left: calc(87.5% + 50px);
-  }
+  } */
   
   #sun{
     width: 130px;
