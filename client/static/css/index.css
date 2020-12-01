@@ -173,8 +173,7 @@ body {
     left: 20px;
     border:none;
   }
-  #username_display {
-    float:left;
+  #name_display {
     border:none;
     font-size: 30px;
     color: white;

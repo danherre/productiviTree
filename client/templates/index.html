@@ -15,11 +15,11 @@
 
 <body>
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}" draggable="false">
-    {%if username_exists %}
-    <span id="username_display">Hello, {{username}} </span>
+    {%if name_exists %}
+    <span id="name_display">Hello, {{name}} </span>
     <a href="/logout" id="logout-button"
-    style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
-    
+        style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
+
     {% else %}
     <a href="/login" id="login-button"
         style="background: url('../static/images/login-signup-button.png'); background-size: 150px auto; background-repeat: no-repeat;"></a>
@@ -46,30 +46,34 @@
     </div>
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
-        <div id="money">55</div> 
-        <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can" draggable="false">
-        <div id="cost-can">10¢</div> 
+        <div id="money">55</div>
+        <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can"
+            draggable="false">
+        <div id="cost-can">10¢</div>
         <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun" draggable="false">
         <div id="cost-sun">20¢</div>
-        <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer" draggable="false">
+        <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer"
+            draggable="false">
         <div id="cost-fert">30¢</div>
 
     </div>
     <div id="floor">
         <img id="sprout" src=" {{ url_for('static', filename='images/sprout.png') }}" alt="Plant" draggable="false">
-        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" onCLick='purr()' draggable="false">
+        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" onCLick='purr()'
+            draggable="false">
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
-    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()' draggable="false">
+    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()'
+        draggable="false">
 
     <script>
         let radioIsOn = false;
         let music = new Audio('../static/audio/dreamy_night.mp3'); //https://www.youtube.com/watch?v=DXuNJ267Vss
         music.loop = true;
 
-        function startRadio(){
-            if (!radioIsOn && !catPurring){
-                console.log("play")        
+        function startRadio() {
+            if (!radioIsOn && !catPurring) {
+                console.log("play")
                 music.play();
                 radioIsOn = true;
             }
@@ -80,12 +84,12 @@
                 radioIsOn = false;
             }
         }
-        
+
         let catPurring = false;
         let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
-        function purr(){
-            if (!catPurring && !radioIsOn){
-                console.log("purr")        
+        function purr() {
+            if (!catPurring && !radioIsOn) {
+                console.log("purr")
                 purring.play();
                 catPurring = true;
             }
@@ -97,7 +101,7 @@
             }
         }
 
-        
+
     </script>
 </body>
 

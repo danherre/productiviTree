@@ -9,12 +9,12 @@ db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.
 @client.app.route("/")
 def index():
     context = {
-        'username_exists': False,
-        'username': ''
+        'name_exists': False,
+        'name': ''
     }
-    if "username" in flask.session.keys():
-        context['username'] = flask.session['username']
-        context['username_exists'] = True
+    if "name" in flask.session.keys():
+        context['name'] = flask.session['name']
+        context['name_exists'] = True
     return flask.render_template("index.html", **context)
 
 @client.app.route("/login", methods=['GET', 'POST'])
@@ -28,24 +28,26 @@ def login():
     top_level = db_cursor.get('/',None)
     username = flask.request.form['username']
     password = flask.request.form['password']
-    if username in top_level['users'] and top_level['users'][username] == password:
+    if username in top_level['users'] and password in top_level['users'][username]:
         flask.session['username'] = username
+        flask.session['name'] = top_level['users'][username][password]
         return flask.redirect("/")
     else:
         context['error_login'] = True
         return flask.render_template("login.html", **context)
 
-
 @client.app.route("/signup", methods=['POST'])
 def signup():
     username = flask.request.form['username']
     password = flask.request.form['password']
+    name = flask.request.form['name']
     top_level = db_cursor.get('/',None)
     if not username or not password or username in top_level['users']:
         context = {'error_signup': True}
         return flask.render_template("login.html", **context)
-    db_cursor.put('/users',username , password)
+    db_cursor.put('/users', username , {password: name})
     flask.session['username'] = username
+    flask.session['name'] = name
     return flask.redirect("/")
 
 @client.app.route("/logout")
