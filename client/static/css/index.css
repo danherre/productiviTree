@@ -87,6 +87,45 @@ body {
     padding-top: 19px;
     padding-left: 10px;
   }
+
+  #cost-can {
+    box-sizing: border-box;
+    position: absolute;
+    width: 80px;
+    height: 94px;
+    top: calc(50% - 7px);
+    left: calc(37.5% + 50px);
+    font-size: 25px;
+    color: #333333;
+    padding-top: 19px;
+    padding-left: 10px;
+  }
+
+  #cost-sun {
+    box-sizing: border-box;
+    position: absolute;
+    width: 80px;
+    height: 94px;
+    top: calc(50% - 7px);
+    left: calc(62.5% + 65px);
+    font-size: 25px;
+    color: #333333;
+    padding-top: 19px;
+    padding-left: 10px;
+  }
+
+  #cost-fert {
+    box-sizing: border-box;
+    position: absolute;
+    width: 80px;
+    height: 94px;
+    top: calc(50% - 7px);
+    left: calc(87.5% + 50px);
+    font-size: 25px;
+    color: #333333;
+    padding-top: 19px;
+    padding-left: 10px;
+  }
   
   #watering-can{
     width: 150px;
@@ -94,28 +133,6 @@ body {
     top: calc(50% - 45px);
     left: calc(37.5% - 85px);
   }
-
-  /* #cost {
-    box-sizing: border-box;
-    position: absolute;
-    width: 80px;
-    height: 94px;
-    top: calc(50% - 7px);
-    font-size: 25px;
-    color: #333333;
-    padding-top: 19px;
-    padding-left: 10px;
-  }
-
-  #cost.can{
-    left: calc(37.5% + 50px);
-  }
-  #cost.sun{
-    left: calc(62.5% + 65px);
-  }
-  #cost.fert{
-    left: calc(87.5% + 50px);
-  } */
   
   #sun{
     width: 130px;
