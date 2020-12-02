@@ -53,3 +53,6 @@ files_for_autograder_io/
 # Google Drive and Dropbox
 Icon
 .dropbox*
+
+# I messed up and now I can't delete this file so gonna gitignore it -Kareen
+pause-button-new.png

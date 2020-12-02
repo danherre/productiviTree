@@ -184,13 +184,13 @@ body {
     border: 2px solid gray;
     height: 150px;
     width: 400px;
-    top: -20px;
+    top: 10px;
     left: calc(50% - 200px);
     background-color: #FAFAFA;
     font-size: 20px;
     text-align: center;
     padding-top: 10px;
-    position: relative;
+    position: fixed;
   }
 
   #login-button {
