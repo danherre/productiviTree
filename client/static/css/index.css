@@ -47,13 +47,13 @@ body {
     bottom: 147px;
   }
 
-  #sprout{
+  #happy-bar {
+    transform: rotate(270deg);
     width: 200px;
-    height: 208px;
-    bottom: 5px;
-    left: calc(63% - 100px);
-    z-index: 2;
-  }
+    height: 25px;
+    bottom: 225px;
+    left: calc(63% - 225px);
+  } 
 
   #pot{
     width: 190px;
@@ -72,9 +72,9 @@ body {
   }
 
   #plant2{
-    width: 120px;
+    width: 130px;
     height: 253px;
-    left: calc(63% - 65px);
+    left: calc(63% - 70px);
     bottom: 115px;
     z-index: 1;
   }
@@ -117,19 +117,6 @@ body {
     font-size: 50px;
     color: #333333;
     padding-top: 19px;
-    padding-left: 10px;
-  }
-
-  #happy-bar {
-    width: 400px;
-    height: 50px;
-    padding-top: 19px;
-    padding-left: 10px;
-  }
-  #happy-scale {
-    width: 410px;
-    height: 70px;
-    padding-top: 47px;
     padding-left: 10px;
   }
 

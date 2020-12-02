@@ -47,8 +47,6 @@
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
         <div id="money">55</div>
-        <!-- <img id="happy-bar" src=" {{ url_for('static', filename='images/100-points.png') }}" alt="Coin" draggable="false">
-        <img id="happy-scale" src=" {{ url_for('static', filename='images/bar-scale.png') }}" alt="Coin" draggable="false"> -->
         <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can"
             draggable="false">
         <div id="cost-can">10¢</div>
@@ -60,10 +58,11 @@
 
     </div>
     <div id="floor">
+        <img id="happy-bar" src=" {{ url_for('static', filename='images/70-points.png') }}" alt="Happiness Bar" draggable="false"> 
         <img id="pot" src=" {{ url_for('static', filename='images/pot.png') }}" alt="Pot" draggable="false">
-        <img id="plant1" src=" {{ url_for('static', filename='images/plant-stage1.png') }}" alt="Plant Stage 1" draggable="false">
+        <!-- <img id="plant1" src=" {{ url_for('static', filename='images/plant-stage1.png') }}" alt="Plant Stage 1" draggable="false"> -->
         <!-- <img id="plant2" src=" {{ url_for('static', filename='images/plant-stage2.png') }}" alt="Plant Stage 2" draggable="false"> -->
-        <!-- <img id="plant3" src=" {{ url_for('static', filename='images/plant-stage3.png') }}" alt="Plant Stage 3" draggable="false"> -->
+        <img id="plant3" src=" {{ url_for('static', filename='images/plant-stage3.png') }}" alt="Plant Stage 3" draggable="false">
         <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" onCLick='purr()' draggable="false">
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
