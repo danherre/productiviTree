@@ -46,12 +46,44 @@ body {
     right: -20px;
     bottom: 147px;
   }
-  
+
   #sprout{
     width: 200px;
     height: 208px;
     bottom: 5px;
     left: calc(63% - 100px);
+    z-index: 2;
+  }
+
+  #pot{
+    width: 190px;
+    height: 138px;
+    bottom: 5px;
+    left: calc(63% - 100px);
+    z-index: 2; 
+  }
+
+  #plant1{
+    width: 100px;
+    height: 78px;
+    left: calc(63% - 60px);
+    bottom: 135px;
+    z-index: 1;
+  }
+
+  #plant2{
+    width: 120px;
+    height: 253px;
+    left: calc(63% - 65px);
+    bottom: 115px;
+    z-index: 1;
+  }
+
+  #plant3{
+    width: 175px;
+    height: 310px;
+    left: calc(63% - 95px);
+    bottom: 115px;
     z-index: 1;
   }
   
@@ -85,6 +117,19 @@ body {
     font-size: 50px;
     color: #333333;
     padding-top: 19px;
+    padding-left: 10px;
+  }
+
+  #happy-bar {
+    width: 400px;
+    height: 50px;
+    padding-top: 19px;
+    padding-left: 10px;
+  }
+  #happy-scale {
+    width: 410px;
+    height: 70px;
+    padding-top: 47px;
     padding-left: 10px;
   }
 
@@ -152,7 +197,7 @@ body {
     border: 2px solid gray;
     height: 150px;
     width: 400px;
-    top: 40px;
+    top: -20px;
     left: calc(50% - 200px);
     background-color: #FAFAFA;
     font-size: 20px;
@@ -160,12 +205,14 @@ body {
     padding-top: 10px;
     position: relative;
   }
+
   #login-button {
     float:right;
     width: 150px;
     height: 50px;
     border:none;
   }
+
   #logout-button {
     float:right;
     width: 130px;
@@ -173,8 +220,10 @@ body {
     left: 20px;
     border:none;
   }
+
   #name_display {
     border:none;
     font-size: 30px;
     color: white;
+    /* background-color: darkgreen; */
   }
