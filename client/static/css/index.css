@@ -22,6 +22,13 @@ body {
     top: -20px;
   }
   
+  #tally {
+    width: 160px;
+    height: 117px;
+    top: 140px;
+    left: calc(50% - 763px);
+  }
+  
   #shelf {
     height: 150px;
     width: 100%;
