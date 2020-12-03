@@ -10,6 +10,16 @@ pauseBtnString = "<button onClick='startPauseBtn()' style='background: url(" + "
 stopBtnString = "<button onClick='stopTimes()' style='background: url(" + "../static/images/stop-button.png" + "); background-size: 80px auto;'></button>";
 settingsString = "<p id='settings-btn'><button onClick='changeSettings()' style='background: url(" + "../static/images/settings-button.png" + "); background-size: 80px auto;'></button></p>";
 
+//necessary for keeping track of money/happiness/plant evolution
+const CAN_COST = 10;
+const SUN_COST = 20;
+const FERT_COST = 30;
+let money = 55;
+let happiness = 0; // This number can go up to 300, will determine plant's evolution
+let numPlants = 0; // Number of total plants they've grown
+let evolution = 1; // Just for debugging, can be deleted later
+let meterVal = 0; // Just for debugging, can be deleted later
+
 // Function which manages the start and pause button
 function startPauseBtn() {
     if (!timerInitiated) {
@@ -112,6 +122,7 @@ function setTimes() {
         }
 
         // Change between break and work when timeleft is < 0
+        // Also gives money reward when work is finished - added later
         if (timeleft < 0) {
             if (working) {
                 working = false;
@@ -119,6 +130,9 @@ function setTimes() {
                 if (!changingSetting) {
                     document.getElementById("end").innerHTML = "Enjoy your break";
                 }
+                // Give reward and update display:
+                money += worktime;
+                updateDisplay();
             }
             else {
                 working = true;
@@ -142,5 +156,104 @@ function stopTimes() {
         working = false;
         timerInitiated = false;
         pausing = false;
+    }
+}
+
+//Here down is logic for growing the plant and keeping track of money / happiness
+
+
+// This should be called any time the amount of money changes
+function updateDisplay() {
+
+    document.getElementById('money').innerHTML = money;
+
+    //update fertilizer opacity
+    if (money < FERT_COST){
+        document.getElementById("fertilizer").style.opacity = "0.25";
+        document.getElementById("cost-fert").style.color = "#b5b5b5";
+    }
+    else{
+        document.getElementById("fertilizer").style.opacity = "1";
+        document.getElementById("cost-fert").style.color = "black";
+    }
+
+    //update sun opacity
+    if (money < SUN_COST){
+        document.getElementById("sun").style.opacity = "0.25";
+        document.getElementById("cost-sun").style.color = "#b5b5b5";
+    }
+    else{
+        document.getElementById("sun").style.opacity = "1";
+        document.getElementById("cost-sun").style.color = "black";
+    }
+
+    //update watering can opacity
+    if (money < CAN_COST){
+        document.getElementById("watering-can").style.opacity = "0.25";
+        document.getElementById("cost-can").style.color = "#b5b5b5";
+    }
+    else{
+        document.getElementById("watering-can").style.opacity = "1";
+        document.getElementById("cost-can").style.color = "black";
+    }
+
+    //update plant evolution
+    if (happiness < 100){
+        evolution = 1; //TODO: Display sapling
+    }
+    else if (happiness < 200){
+        evolution = 2; //TODO: Display second evolution
+    }
+    else if (happiness < 300){
+        evolution = 3; //TODO: Display final plant
+    }
+    else {
+        numPlants += 1;
+        happiness -= 300;
+        evolution = 1; //TODO: Display sapling
+        //TODO: Display updated numPlants
+        //TODO: Congratulate them?
+    }
+
+    //update happiness meter
+    if (happiness % 100 < 10) meterVal = 0; //TODO: Display 0% (this is a placeholder)
+    else if (happiness % 100 < 20) meterVal = 10; //TODO: Display 10% (this is a placeholder)
+    else if (happiness % 100 < 30) meterVal = 20; //TODO: Display 20% (this is a placeholder)
+    else if (happiness % 100 < 40) meterVal = 30; //TODO: Display 30% (this is a placeholder)
+    else if (happiness % 100 < 50) meterVal = 40; //TODO: Display 40% (this is a placeholder)
+    else if (happiness % 100 < 60) meterVal = 50; //TODO: Display 50% (this is a placeholder)
+    else if (happiness % 100 < 70) meterVal = 60; //TODO: Display 60% (this is a placeholder)
+    else if (happiness % 100 < 80) meterVal = 70; //TODO: Display 70% (this is a placeholder)
+    else if (happiness % 100 < 90) meterVal = 80; //TODO: Display 80% (this is a placeholder)
+    else if (happiness % 100 < 100) meterVal = 90; //TODO: Display 90% (this is a placeholder)
+
+    console.log("Amount of money: ", money);
+    console.log("Total happiness: ", happiness);
+    console.log("Happiness Meter: ", meterVal);
+    console.log("Plant evolution: ", evolution);
+    console.log("Number of plants: ", numPlants);
+}
+
+function giveWater(){
+    if (money >= 10){
+        money -= 10;
+        happiness += 10;
+        updateDisplay();
+    }
+}
+
+function giveSun(){
+    if (money >= 20){
+        money -= 20;
+        happiness += 25;
+        updateDisplay();
+    }
+}
+
+function giveFert(){
+    if (money >= 30){
+        money -= 30;
+        happiness += 40;
+        updateDisplay();
     }
 }
