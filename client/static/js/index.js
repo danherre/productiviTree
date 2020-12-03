@@ -14,11 +14,10 @@ settingsString = "<p id='settings-btn'><button onClick='changeSettings()' style=
 const CAN_COST = 10;
 const SUN_COST = 20;
 const FERT_COST = 30;
-let money = 55;
+let money = 1000;
 let happiness = 0; // This number can go up to 300, will determine plant's evolution
 let numPlants = 0; // Number of total plants they've grown
 let evolution = 1; // Just for debugging, can be deleted later
-let meterVal = 0; // Just for debugging, can be deleted later
 
 // Function which manages the start and pause button
 function startPauseBtn() {
@@ -199,37 +198,48 @@ function updateDisplay() {
 
     //update plant evolution
     if (happiness < 100){
-        evolution = 1; //TODO: Display sapling
+        evolution = 1;
+        document.getElementById("plant1").style.display = "block";
+        document.getElementById("plant2").style.display = "none";
+        document.getElementById("plant3").style.display = "none";
     }
     else if (happiness < 200){
-        evolution = 2; //TODO: Display second evolution
+        evolution = 2; 
+        document.getElementById("plant1").style.display = "none";
+        document.getElementById("plant3").style.display = "none";
+        document.getElementById("plant2").style.display = "block";
     }
     else if (happiness < 300){
-        evolution = 3; //TODO: Display final plant
+        evolution = 3;
+        document.getElementById("plant1").style.display = "none";
+        document.getElementById("plant2").style.display = "none";
+        document.getElementById("plant3").style.display = "block";
     }
     else {
         numPlants += 1;
         happiness -= 300;
-        evolution = 1; //TODO: Display sapling
+        evolution = 1;
+        document.getElementById("plant1").style.display = "block";
+        document.getElementById("plant2").style.display = "none";
+        document.getElementById("plant3").style.display = "none";
         //TODO: Display updated numPlants
         //TODO: Congratulate them?
     }
 
     //update happiness meter
-    if (happiness % 100 < 10) meterVal = 0; //TODO: Display 0% (this is a placeholder)
-    else if (happiness % 100 < 20) meterVal = 10; //TODO: Display 10% (this is a placeholder)
-    else if (happiness % 100 < 30) meterVal = 20; //TODO: Display 20% (this is a placeholder)
-    else if (happiness % 100 < 40) meterVal = 30; //TODO: Display 30% (this is a placeholder)
-    else if (happiness % 100 < 50) meterVal = 40; //TODO: Display 40% (this is a placeholder)
-    else if (happiness % 100 < 60) meterVal = 50; //TODO: Display 50% (this is a placeholder)
-    else if (happiness % 100 < 70) meterVal = 60; //TODO: Display 60% (this is a placeholder)
-    else if (happiness % 100 < 80) meterVal = 70; //TODO: Display 70% (this is a placeholder)
-    else if (happiness % 100 < 90) meterVal = 80; //TODO: Display 80% (this is a placeholder)
-    else if (happiness % 100 < 100) meterVal = 90; //TODO: Display 90% (this is a placeholder)
+    if (happiness % 100 < 10) document.getElementById("happy-bar").src = "../static/images/0-points.png"; 
+    else if (happiness % 100 < 20) document.getElementById("happy-bar").src = "../static/images/10-points.png";
+    else if (happiness % 100 < 30) document.getElementById("happy-bar").src = "../static/images/20-points.png"; 
+    else if (happiness % 100 < 40) document.getElementById("happy-bar").src = "../static/images/30-points.png"; 
+    else if (happiness % 100 < 50) document.getElementById("happy-bar").src = "../static/images/40-points.png"; 
+    else if (happiness % 100 < 60) document.getElementById("happy-bar").src = "../static/images/50-points.png"; 
+    else if (happiness % 100 < 70) document.getElementById("happy-bar").src = "../static/images/60-points.png"; 
+    else if (happiness % 100 < 80) document.getElementById("happy-bar").src = "../static/images/70-points.png"; 
+    else if (happiness % 100 < 90) document.getElementById("happy-bar").src = "../static/images/80-points.png";
+    else if (happiness % 100 < 100) document.getElementById("happy-bar").src = "../static/images/90-points.png";
 
     console.log("Amount of money: ", money);
     console.log("Total happiness: ", happiness);
-    console.log("Happiness Meter: ", meterVal);
     console.log("Plant evolution: ", evolution);
     console.log("Number of plants: ", numPlants);
 }
