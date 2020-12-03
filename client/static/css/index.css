@@ -79,6 +79,7 @@ body {
   }
 
   #plant2{
+    display: none;
     width: 130px;
     height: 253px;
     left: calc(63% - 70px);
@@ -87,6 +88,7 @@ body {
   }
 
   #plant3{
+    display: none;
     width: 175px;
     height: 310px;
     left: calc(63% - 95px);
