@@ -16,7 +16,13 @@
 <body>
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}" draggable="false">
     {%if name_exists %}
-    <span id="name_display">Hello, {{name}} </span>
+    <span id="name-display">Hello, {{name}}</span>
+    <!-- <div id="banner">
+        <span id="name-display">Welcome back, {{name}}</span>
+        <br>
+        <span id="grown-count">You have grown X plants so far</span>
+    </div> -->
+    
     <a href="/logout" id="logout-button"
         style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
 
@@ -44,8 +50,7 @@
             </div>
         </div>
     </div>
-    <img id="tally" src=" {{ url_for('static', filename='images/tally-poster.png') }}" alt="Tally Poster" draggable="false">
-    <!-- <div id="tally"></div> -->
+    <!-- <img id="tally" src=" {{ url_for('static', filename='images/tally-poster.png') }}" alt="Tally Poster" draggable="false"> -->
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
         <div id="money">55</div>

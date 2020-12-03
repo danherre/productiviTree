@@ -28,7 +28,7 @@ body {
     top: 140px;
     left: calc(50% - 763px);
   }
-  
+
   #shelf {
     height: 150px;
     width: 100%;
@@ -215,9 +215,22 @@ body {
     border:none;
   }
 
-  #name_display {
+  #name-display {
     border:none;
     font-size: 30px;
+    text-decoration-style: solid;
     color: white;
-    /* background-color: darkgreen; */
+  }
+
+  #grown-count {
+    border:none;
+    font-size: 20px;
+    color: white;
+  }
+
+  #banner{
+    height: 75px;
+    width: 250px;
+    top: 45px;
+    background-color: black;
   }
