@@ -56,9 +56,6 @@ let evolution = 1; // Just for debugging, can be deleted later
 function startPauseBtn() {
     if (!nameDoesExist) {
         alert("You are not logged in. No changes will be saved. ");
-    } else {
-
-        alert("The changes will be only saved after you logout by clicking on the logout button.")
     }
     if (!timerInitiated) {
         console.log("START TIMER");
