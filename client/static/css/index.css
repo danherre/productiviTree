@@ -103,7 +103,7 @@ body {
   }
 
   #welcome-msg {
-    top: 335px;
+    bottom: 360px;
     left: 193px;
     z-index: 1;
     text-align: center;
@@ -116,7 +116,7 @@ body {
   }
   
   #basic-msg {
-    bottom: 350px;
+    bottom: 360px;
     left: 223px;
     z-index: 1;
     text-align: center;
