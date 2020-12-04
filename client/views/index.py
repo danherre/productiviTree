@@ -17,8 +17,12 @@ def index():
     }
     if "name" in flask.session.keys():
         top_level = db_cursor.get('/',None)
+        username = flask.session['username']
         context['name'] = flask.session['name']
         context['name_exists'] = True
+        context['money'] = top_level['users'][username]['money']
+        context['happiness'] = top_level['users'][username]['happiness']
+        context['numPlants'] = top_level['users'][username]['numPlants']
     return flask.render_template("index.html", **context)
 
 @client.app.route("/login", methods=['GET', 'POST'])

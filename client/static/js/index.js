@@ -14,9 +14,11 @@ settingsString = "<p id='settings-btn'><button onClick='changeSettings()' style=
 const CAN_COST = 10;
 const SUN_COST = 20;
 const FERT_COST = 30;
-let money = 1000;
-let happiness = 0; // This number can go up to 300, will determine plant's evolution
-let numPlants = 0; // Number of total plants they've grown
+document.addEventListener("DOMContentLoaded", function (event) {
+    let money = parseInt(document.getElementById("money").innerHTML);
+    let happiness = parseInt(document.getElementById("happiness").value); // This number can go up to 300, will determine plant's evolution
+    let numPlants = parseInt(document.getElementById("numPlants").value); // Number of total plants they've grown
+});
 let evolution = 1; // Just for debugging, can be deleted later
 
 // Function which manages the start and pause button
@@ -167,49 +169,49 @@ function updateDisplay() {
     document.getElementById('money').innerHTML = money;
 
     //update fertilizer opacity
-    if (money < FERT_COST){
+    if (money < FERT_COST) {
         document.getElementById("fertilizer").style.opacity = "0.25";
         document.getElementById("cost-fert").style.color = "#b5b5b5";
     }
-    else{
+    else {
         document.getElementById("fertilizer").style.opacity = "1";
         document.getElementById("cost-fert").style.color = "black";
     }
 
     //update sun opacity
-    if (money < SUN_COST){
+    if (money < SUN_COST) {
         document.getElementById("sun").style.opacity = "0.25";
         document.getElementById("cost-sun").style.color = "#b5b5b5";
     }
-    else{
+    else {
         document.getElementById("sun").style.opacity = "1";
         document.getElementById("cost-sun").style.color = "black";
     }
 
     //update watering can opacity
-    if (money < CAN_COST){
+    if (money < CAN_COST) {
         document.getElementById("watering-can").style.opacity = "0.25";
         document.getElementById("cost-can").style.color = "#b5b5b5";
     }
-    else{
+    else {
         document.getElementById("watering-can").style.opacity = "1";
         document.getElementById("cost-can").style.color = "black";
     }
 
     //update plant evolution
-    if (happiness < 100){
+    if (happiness < 100) {
         evolution = 1;
         document.getElementById("plant1").style.display = "block";
         document.getElementById("plant2").style.display = "none";
         document.getElementById("plant3").style.display = "none";
     }
-    else if (happiness < 200){
-        evolution = 2; 
+    else if (happiness < 200) {
+        evolution = 2;
         document.getElementById("plant1").style.display = "none";
         document.getElementById("plant3").style.display = "none";
         document.getElementById("plant2").style.display = "block";
     }
-    else if (happiness < 300){
+    else if (happiness < 300) {
         evolution = 3;
         document.getElementById("plant1").style.display = "none";
         document.getElementById("plant2").style.display = "none";
@@ -227,14 +229,14 @@ function updateDisplay() {
     }
 
     //update happiness meter
-    if (happiness % 100 < 10) document.getElementById("happy-bar").src = "../static/images/0-points.png"; 
+    if (happiness % 100 < 10) document.getElementById("happy-bar").src = "../static/images/0-points.png";
     else if (happiness % 100 < 20) document.getElementById("happy-bar").src = "../static/images/10-points.png";
-    else if (happiness % 100 < 30) document.getElementById("happy-bar").src = "../static/images/20-points.png"; 
-    else if (happiness % 100 < 40) document.getElementById("happy-bar").src = "../static/images/30-points.png"; 
-    else if (happiness % 100 < 50) document.getElementById("happy-bar").src = "../static/images/40-points.png"; 
-    else if (happiness % 100 < 60) document.getElementById("happy-bar").src = "../static/images/50-points.png"; 
-    else if (happiness % 100 < 70) document.getElementById("happy-bar").src = "../static/images/60-points.png"; 
-    else if (happiness % 100 < 80) document.getElementById("happy-bar").src = "../static/images/70-points.png"; 
+    else if (happiness % 100 < 30) document.getElementById("happy-bar").src = "../static/images/20-points.png";
+    else if (happiness % 100 < 40) document.getElementById("happy-bar").src = "../static/images/30-points.png";
+    else if (happiness % 100 < 50) document.getElementById("happy-bar").src = "../static/images/40-points.png";
+    else if (happiness % 100 < 60) document.getElementById("happy-bar").src = "../static/images/50-points.png";
+    else if (happiness % 100 < 70) document.getElementById("happy-bar").src = "../static/images/60-points.png";
+    else if (happiness % 100 < 80) document.getElementById("happy-bar").src = "../static/images/70-points.png";
     else if (happiness % 100 < 90) document.getElementById("happy-bar").src = "../static/images/80-points.png";
     else if (happiness % 100 < 100) document.getElementById("happy-bar").src = "../static/images/90-points.png";
 
@@ -244,24 +246,24 @@ function updateDisplay() {
     console.log("Number of plants: ", numPlants);
 }
 
-function giveWater(){
-    if (money >= 10){
+function giveWater() {
+    if (money >= 10) {
         money -= 10;
         happiness += 10;
         updateDisplay();
     }
 }
 
-function giveSun(){
-    if (money >= 20){
+function giveSun() {
+    if (money >= 20) {
         money -= 20;
         happiness += 25;
         updateDisplay();
     }
 }
 
-function giveFert(){
-    if (money >= 30){
+function giveFert() {
+    if (money >= 30) {
         money -= 30;
         happiness += 40;
         updateDisplay();
