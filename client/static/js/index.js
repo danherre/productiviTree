@@ -75,7 +75,6 @@ function startPauseBtn() {
         pausing = true;
     }
     else {
-        console.log("RESUME");
         document.getElementById("start-pause-btn").innerHTML = pauseBtnString;
         pausing = false;
     }
@@ -88,8 +87,8 @@ function changeSettings() {
     }
     else {
         changingSetting = true;
-        divString1 = "<div id='leftcontent'>";
-        divString2 = "</div><div id='buttons'>";
+        divString1 = "<div id='leftcontent' style='margin-top: 15px'>";
+        divString2 = "</div><div id='buttons' style='margin-top: 15px'>";
         divString3 = "</div>";
         workTimeForm = "Input work time: <form><input type='text' id='input-work-time' value='" + worktime + "'></form>"
         restTimeForm = "Input rest time: <form><input type='text' id='input-rest-time' value='" + resttime + "'></form>"

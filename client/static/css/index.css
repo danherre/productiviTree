@@ -45,6 +45,7 @@ body {
     width: 350px;
     right: -20px;
     bottom: 147px;
+    z-index: 1;
   }
 
   #happy-bar {
@@ -138,6 +139,7 @@ body {
     width: 180px;
     right: 60px;
     bottom: 430px;
+    z-index: 2;
   }
   
   #coin{
