@@ -18,6 +18,14 @@ let money = 1000;
 let happiness = 0;
 let numPlants = 0;
 let nameDoesExist = false;
+
+//necessary for music and cat purring audios
+let radioIsOn = false;
+let music = new Audio('../static/audio/clair_de_lune.mp3'); https://www.youtube.com/watch?v=NTfeMhyyy5o
+music.loop = true;
+let catPurring = false;
+let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
+
 let username = "";
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -55,7 +63,7 @@ let evolution = 1; // Just for debugging, can be deleted later
 // Function which manages the start and pause button
 function startPauseBtn() {
     if (!nameDoesExist) {
-        alert("You are not logged in. No changes will be saved. ");
+        alert("Warning: You are not logged in so your plant growing progress will not be saved! ");
     }
     if (!timerInitiated) {
         console.log("START TIMER");
@@ -309,5 +317,33 @@ function giveFert() {
         money -= 30;
         happiness += 30;
         updateDisplay();
+    }
+}
+
+function startRadio() {
+    if (!radioIsOn && !catPurring) {
+        console.log("play")
+        music.play();
+        radioIsOn = true;
+    }
+    else {
+        console.log("stop")
+        music.pause();
+        music.currentTime = 0;
+        radioIsOn = false;
+    }
+}
+
+function purr() {
+    if (!catPurring && !radioIsOn) {
+        console.log("purr")
+        purring.play();
+        catPurring = true;
+    }
+    else {
+        console.log("stop purr")
+        purring.pause();
+        purring.currentTime = 0;
+        catPurring = false;
     }
 }

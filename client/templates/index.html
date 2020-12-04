@@ -84,48 +84,13 @@
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
     <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()'
         draggable="false">
+
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
     <!-- link to index javascript file in static/js -->
     <script type="text/javascript" src=" {{ url_for('static', filename='js/index.js') }}"></script>
-    <script>
-        let radioIsOn = false;
-        let music = new Audio('../static/audio/dreamy_night.mp3'); //https://www.youtube.com/watch?v=DXuNJ267Vss
-        music.loop = true;
-
-        function startRadio() {
-            if (!radioIsOn && !catPurring) {
-                console.log("play")
-                music.play();
-                radioIsOn = true;
-            }
-            else {
-                console.log("stop")
-                music.pause();
-                music.currentTime = 0;
-                radioIsOn = false;
-            }
-        }
-        let catPurring = false;
-        let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
-        function purr() {
-            if (!catPurring && !radioIsOn) {
-                console.log("purr")
-                purring.play();
-                catPurring = true;
-            }
-            else {
-                console.log("stop purr")
-                purring.pause();
-                purring.currentTime = 0;
-                catPurring = false;
-            }
-        }
-
-
-    </script>
 </body>
 
 </html>
