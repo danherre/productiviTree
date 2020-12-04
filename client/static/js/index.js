@@ -199,14 +199,6 @@ function stopTimes() {
 
 // This should be called any time the amount of money changes
 function updateDisplay() {
-    document.getElementById('money').innerHTML = money;
-    document.getElementById('numPlants').innerHTML = numPlants;
-    console.log("money");
-    if (nameDoesExist) {
-        firebase.database().ref('/users/' + username + '/money').set(money);
-        firebase.database().ref('/users/' + username + '/happiness').set(happiness);
-        firebase.database().ref('/users/' + username + '/numPlants').set(numPlants);
-    }
 
     //update fertilizer opacity
     if (money < FERT_COST) {
@@ -284,6 +276,15 @@ function updateDisplay() {
     console.log("Total happiness: ", happiness);
     console.log("Plant evolution: ", evolution);
     console.log("Number of plants: ", numPlants);
+
+    document.getElementById('money').innerHTML = money;
+    document.getElementById('numPlants').innerHTML = numPlants;
+    console.log("money");
+    if (nameDoesExist) {
+        firebase.database().ref('/users/' + username + '/money').set(money);
+        firebase.database().ref('/users/' + username + '/happiness').set(happiness);
+        firebase.database().ref('/users/' + username + '/numPlants').set(numPlants);
+    }
 }
 
 function giveWater() {
