@@ -16,17 +16,20 @@
 <body>
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}" draggable="false">
     {%if name_exists %}
-    <span id="name-display">Hello, {{name}}</span>
-    <!-- <div id="banner">
+    <div id="welcome-msg">
         <span id="name-display">Welcome back, {{name}}</span>
         <br>
-        <span id="grown-count">You have grown X plants so far</span>
-    </div> -->
+        <span id="grown-count">You have grown {{numPlants}} plants so far</span>
+    </div>
     
     <a href="/logout" id="logout-button"
         style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
 
     {% else %}
+    <div id="basic-msg">
+       <span id="basic-display"> Ready to study? <br> Click start!</span>
+    </div>
+
     <a href="/login" id="login-button"
         style="background: url('../static/images/login-signup-button.png'); background-size: 150px auto; background-repeat: no-repeat;"></a>
     {% endif %}
@@ -69,6 +72,7 @@
         <img id="plant1" src=" {{ url_for('static', filename='images/plant-stage1.png') }}" alt="Plant Stage 1" draggable="false">
         <img id="plant2" src=" {{ url_for('static', filename='images/plant-stage2.png') }}" alt="Plant Stage 2" draggable="false">
         <img id="plant3" src=" {{ url_for('static', filename='images/plant-stage3.png') }}" alt="Plant Stage 3" draggable="false">
+        <img id="bubble" src=" {{ url_for('static', filename='images/speech-bubble.png') }}" alt="Speech Bubble" draggable="false">
         <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" onCLick='purr()' draggable="false">
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">

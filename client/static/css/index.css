@@ -21,13 +21,6 @@ body {
     left: calc(50% - 1000px);
     top: -20px;
   }
-  
-  #tally {
-    width: 160px;
-    height: 117px;
-    top: 140px;
-    left: calc(50% - 763px);
-  }
 
   #shelf {
     height: 150px;
@@ -100,6 +93,45 @@ body {
     width: 300px;
     bottom: 10px;
     left: 10px;
+  }
+
+  #bubble {
+    width: 300px;
+    height: 152px;
+    bottom: 150px;
+    left: 160px;
+  }
+
+  #welcome-msg {
+    top: 335px;
+    left: 193px;
+    z-index: 1;
+    text-align: center;
+  }
+
+  #name-display {
+    border:none;
+    font-size: 30px;
+    color: black;
+  }
+  
+  #basic-msg {
+    top: 330px;
+    left: 223px;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  #basic-display {
+    border:none;
+    font-size: 30px;
+    color: black;
+  }
+
+  #grown-count {
+    border:none;
+    font-size: 20px;
+    color: black;
   }
   
   #radio{
@@ -215,24 +247,4 @@ body {
     height: 50px;
     left: 20px;
     border:none;
-  }
-
-  #name-display {
-    border:none;
-    font-size: 30px;
-    text-decoration-style: solid;
-    color: white;
-  }
-
-  #grown-count {
-    border:none;
-    font-size: 20px;
-    color: white;
-  }
-
-  #banner{
-    height: 75px;
-    width: 250px;
-    top: 45px;
-    background-color: black;
   }
