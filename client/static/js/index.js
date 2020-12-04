@@ -200,6 +200,7 @@ function stopTimes() {
 // This should be called any time the amount of money changes
 function updateDisplay() {
     document.getElementById('money').innerHTML = money;
+    document.getElementById('numPlants').innerHTML = numPlants;
     console.log("money");
     if (nameDoesExist) {
         firebase.database().ref('/users/' + username + '/money').set(money);
