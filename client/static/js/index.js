@@ -68,11 +68,9 @@ function startPauseBtn() {
         alert("Warning: You are not logged in so your plant growing progress will not be saved! ");
     }
     if (!timerInitiated) {
-        console.log("START TIMER");
         setTimes();
     }
     else if (!pausing) {
-        console.log("PAUSE");
         document.getElementById("start-pause-btn").innerHTML = startBtnString;
         pausing = true;
     }
@@ -103,13 +101,25 @@ function changeSettings() {
 
 // Save settings
 function saveSettings() {
-    // Changing the worktime and resttime variables
-    worktime = document.getElementById("input-work-time");
-    worktime = parseInt(worktime.value);
-    resttime = document.getElementById("input-rest-time");
-    resttime = parseInt(resttime.value);
 
-    closeSettings();
+    // input error checking
+    let worktimeInput = document.getElementById("input-work-time");
+    let resttimeInput = document.getElementById("input-rest-time");
+    worktimeInput = parseFloat(worktimeInput.value);
+    resttimeInput = parseFloat(resttimeInput.value);
+
+    // no input or float value
+    // amount of time is too large or too small
+    if (!worktimeInput || !resttimeInput || worktimeInput % 1 != 0 || resttimeInput % 1 != 0 ||
+        worktimeInput < 1 || worktimeInput > 240 || resttimeInput < 1 || resttimeInput > 240) {
+        alert("Please enter integer value from 1 to 240!");
+    }
+    else {
+        // Changing the worktime and resttime variables
+        worktime = worktimeInput;
+        resttime = resttimeInput;
+        closeSettings();
+    }
 }
 
 // Close settings
