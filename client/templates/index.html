@@ -21,11 +21,18 @@
         <span id="name-display">Welcome back, {{name}}</span>
         <br>
         <span id="grown-count">You have grown {{numPlants}} plants so far</span>
-        <input type="hidden" id="numPlants" name="numPlants" value="{{numPlants}}" />
     </div>
 
-    <a href="/logout" id="logout-button"
-        style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
+    <!-- <a href="/logout" id="logout-button"
+        style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"> -->
+    <form action="/logout" method="post">
+        <input type="hidden" id="numPlants" name="numPlants" value="0{{numPlants}}" />
+        <input type="hidden" id="happiness" name="happiness" value="0{{happiness}}" />
+        <input type="hidden" id="moneyDB" name="moneyDB" value="{{money}}" />
+        <button type="submit" id="logout-button"
+            style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></button>
+    </form>
+    <!-- </a> -->
 
     {% else %}
     <div id="basic-msg">
@@ -70,7 +77,6 @@
         <div id="cost-fert">30¢</div>
     </div>
     <div id="floor">
-        <input type="hidden" id="happiness" name="happiness" val="{{happiness}}" />
         <img id="happy-bar" src=" {{ url_for('static', filename='images/0-points.png') }}" alt="Happiness Bar"
             draggable="false">
         <img id="pot" src=" {{ url_for('static', filename='images/pot.png') }}" alt="Pot" draggable="false">

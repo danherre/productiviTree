@@ -19,10 +19,15 @@ let happiness = 0;
 let numPlants = 0;
 let nameDoesExist = false;
 window.addEventListener("DOMContentLoaded", function () {
-    money = parseInt(document.getElementById("money").innerHTML);
-    console.log("AM I HERE");
-    happiness = parseInt(document.getElementById("happiness").value); // This number can go up to 300, will determine plant's evolution
-    numPlants = parseInt(document.getElementById("numPlants").value); // Number of total plants they've grown
+    if (document.getElementById("money")) {
+        money = parseInt(document.getElementById("money").innerHTML);
+    }
+    if (document.getElementById("happiness")) {
+        happiness = parseInt(document.getElementById("happiness").value); // This number can go up to 300, will determine plant's evolution
+    }
+    if (document.getElementById("numPlants")) {
+        numPlants = parseInt(document.getElementById("numPlants").value); // Number of total plants they've grown
+    }
     nameDoesExist = (document.getElementById("name_exists").value == 'True');
 }, false);
 
@@ -175,6 +180,12 @@ function stopTimes() {
 function updateDisplay() {
 
     document.getElementById('money').innerHTML = money;
+    if (nameDoesExist) {
+        console.log("HERE");
+        document.getElementById('moneyDB').value = money;
+        document.getElementById('happiness').value = happiness;
+        document.getElementById('numPlants').value = numPlants;
+    }
 
     //update fertilizer opacity
     if (money < FERT_COST) {

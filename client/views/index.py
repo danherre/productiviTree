@@ -4,7 +4,10 @@ import client
 from client import app
 from firebase import firebase
 
+
 db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.com/',None)
+
+
 
 @client.app.route("/")
 def index():
@@ -23,6 +26,7 @@ def index():
         context['money'] = top_level['users'][username]['money']
         context['happiness'] = top_level['users'][username]['happiness']
         context['numPlants'] = top_level['users'][username]['numPlants']
+        
     return flask.render_template("index.html", **context)
 
 @client.app.route("/login", methods=['GET', 'POST'])
@@ -58,19 +62,15 @@ def signup():
     flask.session['name'] = name
     return flask.redirect("/")
 
-@client.app.route("/logout")
+@client.app.route("/logout", methods=['POST'])
 def logout():
+    numPlants = int(flask.request.form['numPlants'])
+    happiness = int(flask.request.form['happiness'])
+    moneyDB = int(flask.request.form['moneyDB'])
+    print(numPlants, happiness, moneyDB)
+    user_level = db_cursor.get('/users/' + flask.session['username'], None)
+    db_cursor.put('/users/' + flask.session['username'],"numPlants",numPlants) 
+    db_cursor.put('/users/' + flask.session['username'],"happiness", happiness) 
+    db_cursor.put('/users/' + flask.session['username'],"money", moneyDB) 
     flask.session.clear()
     return flask.redirect("/")
-
-
-@client.app.context_processor
-def utility_processor():
-    def update_val():
-        pass
-
-    def name():
-        """ returns bulshit """
-        return "ABC Pvt. Ltd."
-
-    return dict(update_val=update_val, company=name)
