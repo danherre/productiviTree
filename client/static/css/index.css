@@ -248,3 +248,7 @@ body {
     left: 20px;
     border:none;
   }
+
+  .img_clickable:hover {
+    opacity: 0.5;
+  }

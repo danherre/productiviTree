@@ -66,14 +66,14 @@
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
         <div id="money">{{money}}</div>
-        <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can"
-            draggable="false" onclick="giveWater()">
+        <img class="img_clickable" id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}"
+            alt="Watering Can" draggable="false" onclick="giveWater()">
         <div id="cost-can">10¢</div>
-        <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun" draggable="false"
-            onclick="giveSun()">
+        <img class="img_clickable" id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun"
+            draggable="false" onclick="giveSun()">
         <div id="cost-sun">20¢</div>
-        <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer"
-            draggable="false" onclick="giveFert()">
+        <img class="img_clickable" id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}"
+            alt="Fertilizer" draggable="false" onclick="giveFert()">
         <div id="cost-fert">30¢</div>
     </div>
     <div id="floor">
