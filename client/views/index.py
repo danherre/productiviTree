@@ -10,9 +10,13 @@ db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.
 def index():
     context = {
         'name_exists': False,
-        'name': ''
+        'name': '',
+        'money': 1000,
+        'happiness': 0,
+        'numPlants': 0,
     }
     if "name" in flask.session.keys():
+        top_level = db_cursor.get('/',None)
         context['name'] = flask.session['name']
         context['name_exists'] = True
     return flask.render_template("index.html", **context)
@@ -28,9 +32,9 @@ def login():
     top_level = db_cursor.get('/',None)
     username = flask.request.form['username']
     password = flask.request.form['password']
-    if username in top_level['users'] and password in top_level['users'][username]:
+    if username in top_level['users'] and password in top_level['users'][username]['login']:
         flask.session['username'] = username
-        flask.session['name'] = top_level['users'][username][password]
+        flask.session['name'] = top_level['users'][username]['login'][password]
         return flask.redirect("/")
     else:
         context['error_login'] = True
@@ -45,7 +49,7 @@ def signup():
     if not username or not password or username in top_level['users']:
         context = {'error_signup': True}
         return flask.render_template("login.html", **context)
-    db_cursor.put('/users', username , {password: name})
+    db_cursor.put('/users', username , {'login': {password: name}, 'money': 1000, 'happiness': 0, 'numPlants': 0})
     flask.session['username'] = username
     flask.session['name'] = name
     return flask.redirect("/")
@@ -54,3 +58,15 @@ def signup():
 def logout():
     flask.session.clear()
     return flask.redirect("/")
+
+
+@client.app.context_processor
+def utility_processor():
+    def update_val():
+        pass
+
+    def name():
+        """ returns bulshit """
+        return "ABC Pvt. Ltd."
+
+    return dict(update_val=update_val, company=name)

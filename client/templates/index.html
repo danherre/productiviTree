@@ -21,13 +21,13 @@
         <br>
         <span id="grown-count">You have grown {{numPlants}} plants so far</span>
     </div>
-    
+
     <a href="/logout" id="logout-button"
         style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
 
     {% else %}
     <div id="basic-msg">
-       <span id="basic-display"> Ready to study? <br> Click start!</span>
+        <span id="basic-display"> Ready to study? <br> Click start!</span>
     </div>
 
     <a href="/login" id="login-button"
@@ -56,27 +56,35 @@
     <!-- <img id="tally" src=" {{ url_for('static', filename='images/tally-poster.png') }}" alt="Tally Poster" draggable="false"> -->
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
-        <div id="money">1000</div>
+        <div id="money">{{money}}</div>
         <img id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}" alt="Watering Can"
             draggable="false" onclick="giveWater()">
         <div id="cost-can">10¢</div>
-        <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun" draggable="false" onclick="giveSun()">
+        <img id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun" draggable="false"
+            onclick="giveSun()">
         <div id="cost-sun">20¢</div>
         <img id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}" alt="Fertilizer"
             draggable="false" onclick="giveFert()">
         <div id="cost-fert">30¢</div>
     </div>
     <div id="floor">
-        <img id="happy-bar" src=" {{ url_for('static', filename='images/0-points.png') }}" alt="Happiness Bar" draggable="false"> 
+        <img id="happy-bar" src=" {{ url_for('static', filename='images/0-points.png') }}" alt="Happiness Bar"
+            draggable="false">
         <img id="pot" src=" {{ url_for('static', filename='images/pot.png') }}" alt="Pot" draggable="false">
-        <img id="plant1" src=" {{ url_for('static', filename='images/plant-stage1.png') }}" alt="Plant Stage 1" draggable="false">
-        <img id="plant2" src=" {{ url_for('static', filename='images/plant-stage2.png') }}" alt="Plant Stage 2" draggable="false">
-        <img id="plant3" src=" {{ url_for('static', filename='images/plant-stage3.png') }}" alt="Plant Stage 3" draggable="false">
-        <img id="bubble" src=" {{ url_for('static', filename='images/speech-bubble.png') }}" alt="Speech Bubble" draggable="false">
-        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" onCLick='purr()' draggable="false">
+        <img id="plant1" src=" {{ url_for('static', filename='images/plant-stage1.png') }}" alt="Plant Stage 1"
+            draggable="false">
+        <img id="plant2" src=" {{ url_for('static', filename='images/plant-stage2.png') }}" alt="Plant Stage 2"
+            draggable="false">
+        <img id="plant3" src=" {{ url_for('static', filename='images/plant-stage3.png') }}" alt="Plant Stage 3"
+            draggable="false">
+        <img id="bubble" src=" {{ url_for('static', filename='images/speech-bubble.png') }}" alt="Speech Bubble"
+            draggable="false">
+        <img id="cat" src=" {{ url_for('static', filename='images/cat.png') }}" alt="Cat" onCLick='purr()'
+            draggable="false">
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
-    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()' draggable="false">
+    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()'
+        draggable="false">
 
     <script>
         let radioIsOn = false;
@@ -96,7 +104,6 @@
                 radioIsOn = false;
             }
         }
-
         let catPurring = false;
         let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
         function purr() {
