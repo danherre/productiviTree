@@ -14,15 +14,23 @@ settingsString = "<p id='settings-btn'><button onClick='changeSettings()' style=
 const CAN_COST = 10;
 const SUN_COST = 20;
 const FERT_COST = 30;
-document.addEventListener("DOMContentLoaded", function (event) {
-    let money = parseInt(document.getElementById("money").innerHTML);
-    let happiness = parseInt(document.getElementById("happiness").value); // This number can go up to 300, will determine plant's evolution
-    let numPlants = parseInt(document.getElementById("numPlants").value); // Number of total plants they've grown
-});
+let money = 1000;
+let happiness = 0;
+let numPlants = 0;
+let nameDoesExist = false;
+window.addEventListener("DOMContentLoaded", function () {
+    money = parseInt(document.getElementById("money").innerHTML);
+    console.log("AM I HERE");
+    happiness = parseInt(document.getElementById("happiness").value); // This number can go up to 300, will determine plant's evolution
+    numPlants = parseInt(document.getElementById("numPlants").value); // Number of total plants they've grown
+    nameDoesExist = (document.getElementById("name_exists").value == 'True');
+}, false);
+
 let evolution = 1; // Just for debugging, can be deleted later
 
 // Function which manages the start and pause button
 function startPauseBtn() {
+    alert("You are not logged in. No changes will be saved");
     if (!timerInitiated) {
         console.log("START TIMER");
         setTimes();

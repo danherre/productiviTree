@@ -14,6 +14,7 @@
 </head>
 
 <body>
+    <input type="hidden" id="name_exists" value="{{name_exists}}" />
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}" draggable="false">
     {%if name_exists %}
     <div id="welcome-msg">
