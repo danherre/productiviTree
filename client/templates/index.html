@@ -94,43 +94,6 @@
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
     <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()'
         draggable="false">
-
-    <script>
-        let radioIsOn = false;
-        let music = new Audio('../static/audio/clair_de_lune.mp3'); https://www.youtube.com/watch?v=NTfeMhyyy5o
-        music.loop = true;
-
-        function startRadio() {
-            if (!radioIsOn && !catPurring) {
-                console.log("play")
-                music.play();
-                radioIsOn = true;
-            }
-            else {
-                console.log("stop")
-                music.pause();
-                music.currentTime = 0;
-                radioIsOn = false;
-            }
-        }
-        let catPurring = false;
-        let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
-        function purr() {
-            if (!catPurring && !radioIsOn) {
-                console.log("purr")
-                purring.play();
-                catPurring = true;
-            }
-            else {
-                console.log("stop purr")
-                purring.pause();
-                purring.currentTime = 0;
-                catPurring = false;
-            }
-        }
-
-
-    </script>
 </body>
 
 </html>

@@ -18,6 +18,14 @@ let money = 1000;
 let happiness = 0;
 let numPlants = 0;
 let nameDoesExist = false;
+
+//necessary for music and cat purring audios
+let radioIsOn = false;
+let music = new Audio('../static/audio/clair_de_lune.mp3'); https://www.youtube.com/watch?v=NTfeMhyyy5o
+music.loop = true;
+let catPurring = false;
+let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
+
 window.addEventListener("DOMContentLoaded", function () {
     if (document.getElementById("money")) {
         money = parseInt(document.getElementById("money").innerHTML);
@@ -290,5 +298,33 @@ function giveFert() {
         money -= 30;
         happiness += 40;
         updateDisplay();
+    }
+}
+
+function startRadio() {
+    if (!radioIsOn && !catPurring) {
+        console.log("play")
+        music.play();
+        radioIsOn = true;
+    }
+    else {
+        console.log("stop")
+        music.pause();
+        music.currentTime = 0;
+        radioIsOn = false;
+    }
+}
+
+function purr() {
+    if (!catPurring && !radioIsOn) {
+        console.log("purr")
+        purring.play();
+        catPurring = true;
+    }
+    else {
+        console.log("stop purr")
+        purring.pause();
+        purring.currentTime = 0;
+        catPurring = false;
     }
 }
