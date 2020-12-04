@@ -298,7 +298,7 @@ function giveWater() {
 function giveSun() {
     if (money >= 20) {
         money -= 20;
-        happiness += 25;
+        happiness += 20;
         updateDisplay();
     }
 }
@@ -306,7 +306,7 @@ function giveSun() {
 function giveFert() {
     if (money >= 30) {
         money -= 30;
-        happiness += 40;
+        happiness += 30;
         updateDisplay();
     }
 }
