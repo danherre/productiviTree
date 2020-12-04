@@ -14,18 +14,14 @@ def index():
     context = {
         'name_exists': False,
         'name': '',
-        'money': 1000,
-        'happiness': 0,
-        'numPlants': 0,
+        'username': '',
     }
     if "name" in flask.session.keys():
         top_level = db_cursor.get('/',None)
         username = flask.session['username']
+        context['username'] = username
         context['name'] = flask.session['name']
         context['name_exists'] = True
-        context['money'] = top_level['users'][username]['money']
-        context['happiness'] = top_level['users'][username]['happiness']
-        context['numPlants'] = top_level['users'][username]['numPlants']
         
     return flask.render_template("index.html", **context)
 
@@ -62,18 +58,7 @@ def signup():
     flask.session['name'] = name
     return flask.redirect("/")
 
-@client.app.route("/logout", methods=['GET', 'POST'])
+@client.app.route("/logout")
 def logout():
-    if flask.request.method == 'GET':
-        flask.session.clear()
-    else:
-        numPlants = int(flask.request.form['numPlants'])
-        happiness = int(flask.request.form['happiness'])
-        moneyDB = int(flask.request.form['moneyDB'])
-        print(numPlants, happiness, moneyDB)
-        user_level = db_cursor.get('/users/' + flask.session['username'], None)
-        db_cursor.put('/users/' + flask.session['username'],"numPlants",numPlants) 
-        db_cursor.put('/users/' + flask.session['username'],"happiness", happiness) 
-        db_cursor.put('/users/' + flask.session['username'],"money", moneyDB) 
-        flask.session.clear()
+    flask.session.clear()
     return flask.redirect("/")

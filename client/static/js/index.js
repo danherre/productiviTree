@@ -18,17 +18,36 @@ let money = 1000;
 let happiness = 0;
 let numPlants = 0;
 let nameDoesExist = false;
+let username = "";
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyDBOF4gfXkEjhXN7x4hMaipv-G02PPgsa8",
+    authDomain: "productivity-fd14a.firebaseapp.com",
+    databaseURL: "https://productivity-fd14a.firebaseio.com",
+    projectId: "productivity-fd14a",
+    storageBucket: "productivity-fd14a.appspot.com",
+    messagingSenderId: "667038018522",
+    appId: "1:667038018522:web:811be8765f48dc1f11eee3"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// console.log("THIS IS DATABASE", database);
+
 window.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("money")) {
-        money = parseInt(document.getElementById("money").innerHTML);
-    }
-    if (document.getElementById("happiness")) {
-        happiness = parseInt(document.getElementById("happiness").value); // This number can go up to 300, will determine plant's evolution
-    }
-    if (document.getElementById("numPlants")) {
-        numPlants = parseInt(document.getElementById("numPlants").value); // Number of total plants they've grown
+    if (document.getElementById("username")) {
+        username = document.getElementById("username").value;
     }
     nameDoesExist = (document.getElementById("name_exists").value == 'True');
+    if (nameDoesExist) {
+        firebase.database().ref('/users/' + username).once('value').then((snapshot) => {
+            let user_info = snapshot.val();
+            happiness = parseInt(user_info['happiness']);
+            money = parseInt(user_info['money']);
+            numPlants = parseInt(user_info['numPlants']);
+            updateDisplay();
+        });
+    }
 }, false);
 
 let evolution = 1; // Just for debugging, can be deleted later
@@ -38,6 +57,7 @@ function startPauseBtn() {
     if (!nameDoesExist) {
         alert("You are not logged in. No changes will be saved. ");
     } else {
+
         alert("The changes will be only saved after you logout by clicking on the logout button.")
     }
     if (!timerInitiated) {
@@ -182,13 +202,12 @@ function stopTimes() {
 
 // This should be called any time the amount of money changes
 function updateDisplay() {
-
     document.getElementById('money').innerHTML = money;
+    console.log("money");
     if (nameDoesExist) {
-        console.log("HERE");
-        document.getElementById('moneyDB').value = money;
-        document.getElementById('happiness').value = happiness;
-        document.getElementById('numPlants').value = numPlants;
+        firebase.database().ref('/users/' + username + '/money').set(money);
+        firebase.database().ref('/users/' + username + '/happiness').set(happiness);
+        firebase.database().ref('/users/' + username + '/numPlants').set(numPlants);
     }
 
     //update fertilizer opacity
@@ -270,6 +289,7 @@ function updateDisplay() {
 }
 
 function giveWater() {
+    console.log("GIVING WATER", money);
     if (money >= 10) {
         money -= 10;
         happiness += 10;

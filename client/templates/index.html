@@ -9,8 +9,6 @@
     <link rel="stylesheet" href=" {{ url_for('static', filename='css/timer.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    <!-- link to index javascript file in static/js -->
-    <script type="text/javascript" src=" {{ url_for('static', filename='js/index.js') }}"></script>
 </head>
 
 <body>
@@ -22,17 +20,9 @@
         <br>
         <span id="grown-count">You have grown {{numPlants}} plants so far</span>
     </div>
-
-    <!-- <a href="/logout" id="logout-button"
-        style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"> -->
-    <form action="/logout" method="post">
-        <input type="hidden" id="numPlants" name="numPlants" value="0{{numPlants}}" />
-        <input type="hidden" id="happiness" name="happiness" value="0{{happiness}}" />
-        <input type="hidden" id="moneyDB" name="moneyDB" value="{{money}}" />
-        <button type="submit" id="logout-button"
-            style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></button>
-    </form>
-    <!-- </a> -->
+    <input type="hidden" id="username" value="{{username}}" />
+    <a href="/logout" id="logout-button"
+        style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
 
     {% else %}
     <div id="basic-msg">
@@ -65,7 +55,7 @@
     <!-- <img id="tally" src=" {{ url_for('static', filename='images/tally-poster.png') }}" alt="Tally Poster" draggable="false"> -->
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
-        <div id="money">{{money}}</div>
+        <div id="money">1000</div>
         <img class="img_clickable" id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}"
             alt="Watering Can" draggable="false" onclick="giveWater()">
         <div id="cost-can">10¢</div>
@@ -94,7 +84,12 @@
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
     <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()'
         draggable="false">
-
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-database.js"></script>
+    <!-- link to index javascript file in static/js -->
+    <script type="text/javascript" src=" {{ url_for('static', filename='js/index.js') }}"></script>
     <script>
         let radioIsOn = false;
         let music = new Audio('../static/audio/dreamy_night.mp3'); //https://www.youtube.com/watch?v=DXuNJ267Vss
