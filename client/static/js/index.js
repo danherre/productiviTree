@@ -18,6 +18,7 @@ let money = 1000;
 let happiness = 0;
 let numPlants = 0;
 let nameDoesExist = false;
+let loginNotified = false;
 
 //necessary for music and cat purring audios
 let radioIsOn = false;
@@ -62,7 +63,8 @@ let evolution = 1; // Just for debugging, can be deleted later
 
 // Function which manages the start and pause button
 function startPauseBtn() {
-    if (!nameDoesExist) {
+    if (!nameDoesExist && !loginNotified) {
+        loginNotified = true;
         alert("Warning: You are not logged in so your plant growing progress will not be saved! ");
     }
     if (!timerInitiated) {
