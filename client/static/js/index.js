@@ -26,17 +26,36 @@ music.loop = true;
 let catPurring = false;
 let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
 
+let username = "";
+// Your web app's Firebase configuration
+var firebaseConfig = {
+    apiKey: "AIzaSyDBOF4gfXkEjhXN7x4hMaipv-G02PPgsa8",
+    authDomain: "productivity-fd14a.firebaseapp.com",
+    databaseURL: "https://productivity-fd14a.firebaseio.com",
+    projectId: "productivity-fd14a",
+    storageBucket: "productivity-fd14a.appspot.com",
+    messagingSenderId: "667038018522",
+    appId: "1:667038018522:web:811be8765f48dc1f11eee3"
+};
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// console.log("THIS IS DATABASE", database);
+
 window.addEventListener("DOMContentLoaded", function () {
-    if (document.getElementById("money")) {
-        money = parseInt(document.getElementById("money").innerHTML);
-    }
-    if (document.getElementById("happiness")) {
-        happiness = parseInt(document.getElementById("happiness").value); // This number can go up to 300, will determine plant's evolution
-    }
-    if (document.getElementById("numPlants")) {
-        numPlants = parseInt(document.getElementById("numPlants").value); // Number of total plants they've grown
+    if (document.getElementById("username")) {
+        username = document.getElementById("username").value;
     }
     nameDoesExist = (document.getElementById("name_exists").value == 'True');
+    if (nameDoesExist) {
+        firebase.database().ref('/users/' + username).once('value').then((snapshot) => {
+            let user_info = snapshot.val();
+            happiness = parseInt(user_info['happiness']);
+            money = parseInt(user_info['money']);
+            numPlants = parseInt(user_info['numPlants']);
+            updateDisplay();
+        });
+    }
 }, false);
 
 let evolution = 1; // Just for debugging, can be deleted later
@@ -44,9 +63,7 @@ let evolution = 1; // Just for debugging, can be deleted later
 // Function which manages the start and pause button
 function startPauseBtn() {
     if (!nameDoesExist) {
-        alert("You are not logged in. No changes will be saved. ");
-    } else {
-        alert("The changes will be only saved after you logout by clicking on the logout button.")
+        alert("Warning: You are not logged in so your plant growing progress will not be saved! ");
     }
     if (!timerInitiated) {
         console.log("START TIMER");
@@ -191,14 +208,6 @@ function stopTimes() {
 // This should be called any time the amount of money changes
 function updateDisplay() {
 
-    document.getElementById('money').innerHTML = money;
-    if (nameDoesExist) {
-        console.log("HERE");
-        document.getElementById('moneyDB').value = money;
-        document.getElementById('happiness').value = happiness;
-        document.getElementById('numPlants').value = numPlants;
-    }
-
     //update fertilizer opacity
     if (money < FERT_COST) {
         document.getElementById("fertilizer").style.opacity = "0.25";
@@ -275,9 +284,19 @@ function updateDisplay() {
     console.log("Total happiness: ", happiness);
     console.log("Plant evolution: ", evolution);
     console.log("Number of plants: ", numPlants);
+
+    document.getElementById('money').innerHTML = money;
+    document.getElementById('numPlants').innerHTML = numPlants;
+    console.log("money");
+    if (nameDoesExist) {
+        firebase.database().ref('/users/' + username + '/money').set(money);
+        firebase.database().ref('/users/' + username + '/happiness').set(happiness);
+        firebase.database().ref('/users/' + username + '/numPlants').set(numPlants);
+    }
 }
 
 function giveWater() {
+    console.log("GIVING WATER", money);
     if (money >= 10) {
         money -= 10;
         happiness += 10;
@@ -288,7 +307,7 @@ function giveWater() {
 function giveSun() {
     if (money >= 20) {
         money -= 20;
-        happiness += 25;
+        happiness += 20;
         updateDisplay();
     }
 }
@@ -296,7 +315,7 @@ function giveSun() {
 function giveFert() {
     if (money >= 30) {
         money -= 30;
-        happiness += 40;
+        happiness += 30;
         updateDisplay();
     }
 }
