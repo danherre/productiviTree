@@ -259,10 +259,6 @@ body {
     border:none;
   }
 
-  .img_clickable:hover {
-    opacity: 0.5;
-  }
-
   /* The Modal (background) */
   .modal {
     display: none; /* Hidden by default */
@@ -309,4 +305,7 @@ body {
     color: black;
     text-decoration: none;
     cursor: pointer;
+  }
+  .img_clickable:hover {
+    opacity: 0.7;
   }

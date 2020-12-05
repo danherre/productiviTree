@@ -62,15 +62,15 @@
     <div id="instr-modal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-          <span class="close">&times;</span>
-          <h1>Instructions</h1>
-          <ul>
-              <li>Break down your work schedule into manageable periods and breaks.</li>
-              <li>Receive 1 cent for each minute worked.</li>
-              <li>Use money to nurture your plant with water, sunlight or fertilizer!</li>
-              <li>Customize your schedule in Settings.</li>
-              <li>Try clicking on the cat or radio!</li>
-          </ul>
+            <span class="close">&times;</span>
+            <h1>Instructions</h1>
+            <ul>
+                <li>Break down your work schedule into manageable periods and breaks.</li>
+                <li>Receive 1 cent for each minute worked.</li>
+                <li>Use money to nurture your plant with water, sunlight or fertilizer!</li>
+                <li>Customize your schedule in Settings.</li>
+                <li>Try clicking on the cat or radio!</li>
+            </ul>
         </div>
     </div>
     <!-- <img id="tally" src=" {{ url_for('static', filename='images/tally-poster.png') }}" alt="Tally Poster" draggable="false"> -->
@@ -103,8 +103,8 @@
             draggable="false">
     </div>
     <img id="table" src=" {{ url_for('static', filename='images/table.png') }}" alt="Table" draggable="false">
-    <img id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio" onCLick='startRadio()'
-        draggable="false">
+    <img class="img_clickable" id="radio" src=" {{ url_for('static', filename='images/radio.png') }}" alt="Radio"
+        onCLick='startRadio()' draggable="false">
 
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
