@@ -1,6 +1,7 @@
 body {
     margin: 0px;
-    font-family: 'Dancing Script', cursive;
+    /* font-family: 'Dancing Script', cursive; */
+    font-family: 'Raleway', sans-serif;
     color: #333333;
   }
   
@@ -105,33 +106,33 @@ body {
 
   #welcome-msg {
     bottom: 360px;
-    left: 193px;
+    left: 200px;
     z-index: 1;
     text-align: center;
   }
 
   #name-display {
     border:none;
-    font-size: 30px;
+    font-size: 20px;
     color: black;
   }
   
   #basic-msg {
-    bottom: 350px;
-    left: 223px;
+    bottom: 360px;
+    left: 205px;
     z-index: 1;
     text-align: center;
   }
   
   #basic-display {
     border:none;
-    font-size: 30px;
+    font-size: 25px;
     color: black;
   }
 
   #grown-count {
     border:none;
-    font-size: 20px;
+    font-size: 15px;
     color: black;
   }
   

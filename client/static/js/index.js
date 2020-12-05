@@ -19,6 +19,7 @@ let happiness = 0;
 let numPlants = 0;
 let nameDoesExist = false;
 let loginNotified = false;
+let plantString = "";
 
 //necessary for music and cat purring audios
 let radioIsOn = false;
@@ -305,7 +306,9 @@ function updateDisplay() {
     console.log("Number of plants: ", numPlants);
 
     document.getElementById('money').innerHTML = money;
-    document.getElementById('numPlants').innerHTML = numPlants;
+    if (numPlants == 1) plantString = " plant ";
+    else plantString = " plants "; 
+    document.getElementById('numPlants').innerHTML = numPlants + plantString;
     console.log("money");
     if (nameDoesExist) {
         firebase.database().ref('/users/' + username + '/money').set(money);
