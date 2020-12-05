@@ -102,6 +102,7 @@ body {
     height: 152px;
     bottom: 150px;
     left: 160px;
+    /* position: relative; */
   }
 
   #welcome-msg {
@@ -169,7 +170,7 @@ body {
     position: absolute;
     width: 80px;
     height: 94px;
-    top: calc(50% - 7px);
+    top: calc(50% - 21px);
     left: calc(37.5% + 50px);
     font-size: 25px;
     color: #333333;
@@ -182,7 +183,7 @@ body {
     position: absolute;
     width: 80px;
     height: 94px;
-    top: calc(50% - 7px);
+    top: calc(50% - 21px);
     left: calc(62.5% + 65px);
     font-size: 25px;
     color: #333333;
@@ -195,7 +196,7 @@ body {
     position: absolute;
     width: 80px;
     height: 94px;
-    top: calc(50% - 7px);
+    top: calc(50% - 21px);
     left: calc(87.5% + 50px);
     font-size: 25px;
     color: #333333;

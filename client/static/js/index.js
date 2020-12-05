@@ -74,7 +74,7 @@ function startPauseBtn() {
         loginNotified = true;
         alert("Warning: You are not logged in so your plant growing progress will not be saved! ");
     }
-    if (!timerInitiated) {
+    else if (!timerInitiated) {
         setTimes();
     }
     else if (!pausing) {
@@ -329,7 +329,7 @@ function giveWater() {
 function giveSun() {
     if (money >= 20) {
         money -= 20;
-        happiness += 20;
+        happiness += 30;
         updateDisplay();
     }
 }
@@ -337,7 +337,7 @@ function giveSun() {
 function giveFert() {
     if (money >= 30) {
         money -= 30;
-        happiness += 30;
+        happiness += 50;
         updateDisplay();
     }
 }
