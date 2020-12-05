@@ -112,6 +112,7 @@ body {
   }
 
   #welcome-msg {
+    font-size: 20px;
     position: relative;
     margin: auto;
     z-index: 1;
@@ -122,7 +123,6 @@ body {
     border:none;
     font-size: 20px;
     color: black;
-    background-color: white;
   }
   
   #basic-msg {

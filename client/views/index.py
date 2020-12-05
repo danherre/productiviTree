@@ -13,6 +13,7 @@ db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.
 def index():
     context = {
         'name_exists': False,
+        'long_name': False,
         'name': '',
         'username': '',
     }
@@ -22,6 +23,8 @@ def index():
         context['username'] = username
         context['name'] = flask.session['name']
         context['name_exists'] = True
+        if len(flask.session['name']) > 10:
+            context['long_name'] = True
         
     return flask.render_template("index.html", **context)
 
