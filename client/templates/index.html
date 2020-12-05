@@ -17,10 +17,12 @@
     <input type="hidden" id="name_exists" value="{{name_exists}}" />
     <img id="background" src=" {{ url_for('static', filename='images/window.jpg') }}" draggable="false">
     {%if name_exists %}
-    <div id="welcome-msg">
-        <span id="name-display">Welcome back, {{name}}</span>
-        <br>
-        <span id="grown-count">You have grown <span id="numPlants">0 plants </span>so far</span>
+    <div id="welcome-msg-container">
+        <div id="welcome-msg">
+            <span id="name-display">Welcome back, {{name}}.</span>
+            <br>
+            <span id="grown-count">You have grown <span id="numPlants">0 plants </span>so far.</span>
+        </div>
     </div>
     <input type="hidden" id="username" value="{{username}}" />
     <a href="/logout" id="logout-button"
