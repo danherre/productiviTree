@@ -134,12 +134,14 @@ function closeSettings() {
     }
     leftContentString1 = "<div id='leftcontent'><p id='mins' class='times'>";
     leftContentString2 = "m </p><p id='secs' class='times'>";
-    leftContentString3 = "s </p><h2 id='end'></h2></div>";
-    buttonsString1 = "<div id='buttons'>" + settingsString;
+    leftContentString3 = "s </p><h2 id='end'>";
+    buttonsString1 = "</h2></div><div id='buttons'>" + settingsString;
     buttonsString2 = "<p id='start-pause-btn'>";
     buttonsString3 = "</button></p><p id='stop-btn'>" + stopBtnString + "</button></p></div>";
+    if (working) timerMessage = "Working";
+    else timerMessage = "Enjoy your break";
     if (timerInitiated) {
-        document.getElementById("visible").innerHTML = leftContentString1 + minutes + leftContentString2 + seconds + leftContentString3 + buttonsString1 + buttonsString2 + buttonString + buttonsString3;
+        document.getElementById("visible").innerHTML = leftContentString1 + minutes + leftContentString2 + seconds + leftContentString3 + timerMessage + buttonsString1 + buttonsString2 + buttonString + buttonsString3;
     }
     else {
         buttonString = startBtnString;
