@@ -27,6 +27,11 @@ music.loop = true;
 let catPurring = false;
 let purring = new Audio('../static/audio/cat_purr.mp3'); // https://www.youtube.com/watch?v=2Ckbk_flMhQ
 
+// Necessary variables for opening instructions modal
+let instrModal = document.getElementById("instr-modal"); // Get the modal
+let instrBtn = document.getElementById("instr-button"); // Get the button that opens the modal
+let instrCloseSpan = document.getElementsByClassName("close")[0]; // Get the <span> element that closes the modal
+
 let username = "";
 // Your web app's Firebase configuration
 var firebaseConfig = {
@@ -57,6 +62,7 @@ window.addEventListener("DOMContentLoaded", function () {
             updateDisplay();
         });
     }
+    else openInstr();
 }, false);
 
 let evolution = 1; // Just for debugging, can be deleted later
@@ -359,4 +365,21 @@ function purr() {
         purring.currentTime = 0;
         catPurring = false;
     }
+}
+
+// When the user clicks on the button, open the modal
+function openInstr() {
+  instrModal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+instrCloseSpan.onclick = function() {
+  instrModal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == instrModal) {
+    instrModal.style.display = "none";
+  }
 }

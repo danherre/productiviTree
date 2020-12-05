@@ -22,15 +22,20 @@
     </div>
     <input type="hidden" id="username" value="{{username}}" />
     <a href="/logout" id="logout-button"
-        style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;"></a>
+        style="background: url('../static/images/logout-button.png'); background-size: 120px auto; background-repeat: no-repeat;">
+    </a>
+    <button id="instr-button" onclick="openInstr()"
+        style="background: url('../static/images/instr-button.png'); background-size: 150px auto; background-repeat: no-repeat;"></button>
 
     {% else %}
     <div id="basic-msg">
         <span id="basic-display"> Ready to study? <br> Click start!</span>
     </div>
-
     <a href="/login" id="login-button"
-        style="background: url('../static/images/login-signup-button.png'); background-size: 150px auto; background-repeat: no-repeat;"></a>
+        style="background: url('../static/images/login-signup-button.png'); background-size: 150px auto; background-repeat: no-repeat;">
+    </a>
+    <button id="instr-button" onclick="openInstr()"
+        style="background: url('../static/images/instr-button.png'); background-size: 150px auto; background-repeat: no-repeat;"></button>
     {% endif %}
     <div id="timer-container">
         <div id='visible'>
@@ -50,6 +55,20 @@
                     background-size: 80px auto;">
                     </button></p>
             </div>
+        </div>
+    </div>
+    <div id="instr-modal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h1>Instructions</h1>
+          <ul>
+              <li>Break down your work schedule into manageable periods and breaks.</li>
+              <li>Receive 1 cent for each minute worked.</li>
+              <li>Use money to nurture your plant with water, sunlight or fertilizer!</li>
+              <li>Customize your schedule in Settings.</li>
+              <li>Trying clicking on the cat or radio!</li>
+          </ul>
         </div>
     </div>
     <!-- <img id="tally" src=" {{ url_for('static', filename='images/tally-poster.png') }}" alt="Tally Poster" draggable="false"> -->
