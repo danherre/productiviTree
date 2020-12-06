@@ -83,15 +83,15 @@
     <div id="shelf">
         <img id="coin" src=" {{ url_for('static', filename='images/coin.png') }}" alt="Coin" draggable="false">
         <div id="money">1000</div>
-        <img class="img_clickable available" id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}"
+        <img class="img_clickable" id="watering-can" src=" {{ url_for('static', filename='images/watering-can.png') }}"
             alt="Watering Can" draggable="false" onclick="giveWater()">
-        <div class="available" id="cost-can">10¢<br>+10pts</div>
-        <img class="img_clickable available" id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun"
+        <div id="cost-can">10¢<br>+10pts</div>
+        <img class="img_clickable" id="sun" src=" {{ url_for('static', filename='images/sun.png') }}" alt="Sun"
             draggable="false" onclick="giveSun()">
-        <div class="available" id="cost-sun">20¢<br>+30pts</div>
-        <img class="img_clickable available" id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}"
+        <div id="cost-sun">20¢<br>+30pts</div>
+        <img class="img_clickable" id="fertilizer" src=" {{ url_for('static', filename='images/fertilizer.png') }}"
             alt="Fertilizer" draggable="false" onclick="giveFert()">
-        <div class="available" id="cost-fert">30¢<br>+50pts</div>
+        <div id="cost-fert">30¢<br>+50pts</div>
     </div>
     <div id="floor">
         <img id="happy-bar" src=" {{ url_for('static', filename='images/0-points.png') }}" alt="Happiness Bar"
