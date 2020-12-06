@@ -234,28 +234,36 @@ function updateDisplay() {
         document.getElementById("cost-fert").style.color = "#b5b5b5";
     }
     else {
-        document.getElementById("fertilizer").style.opacity = "1";
-        document.getElementById("cost-fert").style.color = "black";
+        document.getElementById("fertilizer").style.removeProperty('opacity');
+        document.getElementById("cost-fert").style.removeProperty('color');
     }
 
     //update sun opacity
     if (money < SUN_COST) {
         document.getElementById("sun").style.opacity = "0.25";
         document.getElementById("cost-sun").style.color = "#b5b5b5";
+        // document.getElementById("sun").style.opacity = "0.25";
+        // document.getElementById("cost-sun").style.color = "#b5b5b5";
     }
     else {
-        document.getElementById("sun").style.opacity = "1";
-        document.getElementById("cost-sun").style.color = "black";
+        document.getElementById("sun").style.removeProperty('opacity');
+        document.getElementById("cost-sun").style.removeProperty('color');
+        // document.getElementById("sun").style.opacity = "1";
+        // document.getElementById("cost-sun").style.color = "black";
     }
 
     //update watering can opacity
     if (money < CAN_COST) {
         document.getElementById("watering-can").style.opacity = "0.25";
         document.getElementById("cost-can").style.color = "#b5b5b5";
+        // document.getElementById("watering-can").style.opacity = "0.25";
+        // document.getElementById("cost-can").style.color = "#b5b5b5";
     }
     else {
-        document.getElementById("watering-can").style.opacity = "1";
-        document.getElementById("cost-can").style.color = "black";
+        document.getElementById("watering-can").style.removeProperty('opacity');
+        document.getElementById("cost-can").style.removeProperty('color');
+        // document.getElementById("watering-can").style.opacity = "1";
+        // document.getElementById("cost-can").style.color = "black";
     }
 
     //update plant evolution
