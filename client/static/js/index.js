@@ -14,7 +14,7 @@ settingsString = "<p id='settings-btn'><button onClick='changeSettings()' style=
 const CAN_COST = 10;
 const SUN_COST = 20;
 const FERT_COST = 30;
-let money = 1000;
+let money = 25;
 let happiness = 0;
 let numPlants = 0;
 let nameDoesExist = false;
