@@ -56,7 +56,7 @@ def signup():
     if not username or not password or username in top_level['users']:
         context = {'error_signup': True}
         return flask.render_template("login.html", **context)
-    db_cursor.put('/users', username , {'login': {password: name}, 'money': 1000, 'happiness': 0, 'numPlants': 0})
+    db_cursor.put('/users', username , {'login': {password: name}, 'money': 25, 'happiness': 0, 'numPlants': 0})
     flask.session['username'] = username
     flask.session['name'] = name
     return flask.redirect("/")
