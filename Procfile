@@ -1,1 +1,1 @@
-web: gunicorn app:views/index
+web: gunicorn app:client
