@@ -12,7 +12,7 @@ FLASK_APP=client
 CLIENT_SETTINGS=config.py
 
 export FLASK_DEBUG=True
-export FLASK_APP=client/views/index.py
+export FLASK_APP=app.py
 export CLIENT_SETTINGS=config.py
 
 flask run --host 0.0.0.0 --port 8000

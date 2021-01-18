@@ -1,1 +1,1 @@
-web: gunicorn --chdir client/views index:app
+web: gunicorn app:app

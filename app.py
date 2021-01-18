@@ -1,15 +1,13 @@
 from flask import Flask
 import flask
-import client
-from client import app
 from firebase import firebase
-
+app = Flask(__name__)
 
 db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.com/',None)
 
 
 
-@client.app.route("/")
+@app.route("/")
 def index():
     context = {
         'name_exists': False,
@@ -28,7 +26,7 @@ def index():
         
     return flask.render_template("index.html", **context)
 
-@client.app.route("/login", methods=['GET', 'POST'])
+@app.route("/login", methods=['GET', 'POST'])
 def login():
     flask.session.clear()
     context = {'error_login': False}
@@ -47,7 +45,7 @@ def login():
         context['error_login'] = True
         return flask.render_template("login.html", **context)
 
-@client.app.route("/signup", methods=['POST'])
+@app.route("/signup", methods=['POST'])
 def signup():
     username = flask.request.form['username']
     password = flask.request.form['password']
@@ -61,7 +59,7 @@ def signup():
     flask.session['name'] = name
     return flask.redirect("/")
 
-@client.app.route("/logout")
+@app.route("/logout")
 def logout():
     flask.session.clear()
     return flask.redirect("/")
