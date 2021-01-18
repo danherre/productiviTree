@@ -289,16 +289,16 @@ function updateDisplay() {
     }
 
     //update happiness meter
-    if (happiness % 100 < 10) document.getElementById("happy-bar").src = "../static/images/0-points.png";
-    else if (happiness % 100 < 20) document.getElementById("happy-bar").src = "../static/images/10-points.png";
-    else if (happiness % 100 < 30) document.getElementById("happy-bar").src = "../static/images/20-points.png";
-    else if (happiness % 100 < 40) document.getElementById("happy-bar").src = "../static/images/30-points.png";
-    else if (happiness % 100 < 50) document.getElementById("happy-bar").src = "../static/images/40-points.png";
-    else if (happiness % 100 < 60) document.getElementById("happy-bar").src = "../static/images/50-points.png";
-    else if (happiness % 100 < 70) document.getElementById("happy-bar").src = "../static/images/60-points.png";
-    else if (happiness % 100 < 80) document.getElementById("happy-bar").src = "../static/images/70-points.png";
-    else if (happiness % 100 < 90) document.getElementById("happy-bar").src = "../static/images/80-points.png";
-    else if (happiness % 100 < 100) document.getElementById("happy-bar").src = "../static/images/90-points.png";
+    if (happiness % 100 < 10) document.getElementById("happy-bar").src = "../static/images/0-points.PNG";
+    else if (happiness % 100 < 20) document.getElementById("happy-bar").src = "../static/images/10-points.PNG";
+    else if (happiness % 100 < 30) document.getElementById("happy-bar").src = "../static/images/20-points.PNG";
+    else if (happiness % 100 < 40) document.getElementById("happy-bar").src = "../static/images/30-points.PNG";
+    else if (happiness % 100 < 50) document.getElementById("happy-bar").src = "../static/images/40-points.PNG";
+    else if (happiness % 100 < 60) document.getElementById("happy-bar").src = "../static/images/50-points.PNG";
+    else if (happiness % 100 < 70) document.getElementById("happy-bar").src = "../static/images/60-points.PNG";
+    else if (happiness % 100 < 80) document.getElementById("happy-bar").src = "../static/images/70-points.PNG";
+    else if (happiness % 100 < 90) document.getElementById("happy-bar").src = "../static/images/80-points.PNG";
+    else if (happiness % 100 < 100) document.getElementById("happy-bar").src = "../static/images/90-points.PNG";
 
     console.log("Amount of money: ", money);
     console.log("Total happiness: ", happiness);
@@ -307,7 +307,7 @@ function updateDisplay() {
 
     document.getElementById('money').innerHTML = money;
     if (numPlants == 1) plantString = " plant ";
-    else plantString = " plants "; 
+    else plantString = " plants ";
     document.getElementById('numPlants').innerHTML = numPlants + plantString;
     console.log("money");
     if (nameDoesExist) {
@@ -372,17 +372,17 @@ function purr() {
 
 // When the user clicks on the button, open the modal
 function openInstr() {
-  instrModal.style.display = "block";
+    instrModal.style.display = "block";
 }
 
 // When the user clicks on <span> (x), close the modal
-instrCloseSpan.onclick = function() {
-  instrModal.style.display = "none";
+instrCloseSpan.onclick = function () {
+    instrModal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == instrModal) {
-    instrModal.style.display = "none";
-  }
+window.onclick = function (event) {
+    if (event.target == instrModal) {
+        instrModal.style.display = "none";
+    }
 }
