@@ -1,6 +1,8 @@
 # ProductiviTree
 A web interface for the Pomodoro Technique disguised as a relaxing plant-growing game.
 
+The app is deployed at http://productivitree.herokuapp.com/
+
 To setup the app (Navigate to the main directory aka the Productivitree folder):
 
 1. (If you haven't already) Create a python environment by running `python3 -m venv env`
