@@ -2,7 +2,7 @@ from flask import Flask
 import flask
 from firebase import firebase
 app = Flask(__name__)
-
+app.secret_key = '\x0cQQ\xe5\x80\x1e\xad\xf2N\xb4\xdc\xcb\xad\x94q\xcd}\xdb\xfa TV\x98\xe8'
 db_cursor = firebase.FirebaseApplication('https://productivity-fd14a.firebaseio.com/',None)
 
 
