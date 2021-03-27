@@ -1,5 +1,6 @@
 from flask import Flask
 import flask
+import os
 from firebase import firebase
 app = Flask(__name__)
 app.secret_key = '\x0cQQ\xe5\x80\x1e\xad\xf2N\xb4\xdc\xcb\xad\x94q\xcd}\xdb\xfa TV\x98\xe8'
@@ -66,4 +67,5 @@ def logout():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port, debug=True)
