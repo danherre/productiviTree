@@ -72,9 +72,9 @@ let evolution = 1; // Just for debugging, can be deleted later
 function startPauseBtn() {
     if (!nameDoesExist && !loginNotified) {
         loginNotified = true;
-        alert("Warning: You are not logged in so your plant growing progress will not be saved! Press the start button again to proceed.");
+        alert("Warning: You are not logged in so your plant growing progress will not be saved!");
     }
-    else if (!timerInitiated) {
+    if (!timerInitiated) {
         setTimes();
     }
     else if (!pausing) {
