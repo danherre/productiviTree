@@ -74,7 +74,7 @@ function startPauseBtn() {
         loginNotified = true;
         alert("Warning: You are not logged in so your plant growing progress will not be saved!");
     }
-    else if (!timerInitiated) {
+    if (!timerInitiated) {
         setTimes();
     }
     else if (!pausing) {
